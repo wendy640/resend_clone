@@ -5,6 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { usePathname } from "next/navigation";
 import { ComboboxDemo } from "./Combobox";
+import profile from "../images/Avatar.png";
+import { ChevronsUpDown } from "lucide-react";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuLabel,
+	DropdownMenuSeparator,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
 	Bell,
 	CircleUser,
@@ -79,17 +89,33 @@ export const Header = () => {
 					</HamburgerSheetTrigger>
 					<HamburgerSheetContent
 						side="left"
-						className="flex flex-col"
+						className="flex flex-col "
 						style={{ backgroundColor: "#FAFAFA" }}
 					>
-						<nav className="grid gap-2 text-lg font-medium">
-							{/* <Link
-								href="#"
-								className="flex items-center gap-2 text-lg font-semibold"
-							>
-								<Package2 className="h-6 w-6" />
-								<span className="sr-only">Acme Inc</span>
-							</Link> */}
+						<nav className="grid gap-2  text-sm font-medium lg:px-4">
+							<div className="avatar rounded-full flex items-center justify-around my-5 gap-8">
+								<div className="flex items-center gap-2">
+									<Image src={profile} alt="user-pics" width={25} height={25} />
+									<p className="lg:text-[14px] md:text-[10px] text-muted-foreground text-sm font-medium">
+										Henry Nnalue
+									</p>
+								</div>
+								<div>
+									<DropdownMenu>
+										<DropdownMenuTrigger asChild>
+											<ChevronsUpDown className="h-4 w-3 shrink-0" />
+										</DropdownMenuTrigger>
+										<DropdownMenuContent align="end">
+											<DropdownMenuLabel>My Account</DropdownMenuLabel>
+											<DropdownMenuSeparator />
+											<DropdownMenuItem>Settings</DropdownMenuItem>
+											<DropdownMenuItem>Support</DropdownMenuItem>
+											<DropdownMenuSeparator />
+											<DropdownMenuItem>Logout</DropdownMenuItem>
+										</DropdownMenuContent>
+									</DropdownMenu>
+								</div>
+							</div>
 							<Link
 								href="/"
 								className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
@@ -97,7 +123,7 @@ export const Header = () => {
 								<Image
 									src={DashboardIcon}
 									alt="dashboard"
-									className="h-5 w-5"
+									className="h-4 w-4"
 								/>
 								Dashboard
 							</Link>
@@ -105,8 +131,8 @@ export const Header = () => {
 								href="/dashboard/wallet"
 								className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
 							>
-								<Image src={WalletIcon} alt="wallet" className="h-5 w-5" />
-								Wallet
+								<Image src={WalletIcon} alt="wallet" className="h-4 w-4" />
+								Wallets
 								{/* <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
 									6
 								</Badge> */}
@@ -118,7 +144,7 @@ export const Header = () => {
 								<Image
 									src={TransactionIcon}
 									alt="transaction"
-									className="h-5 w-5"
+									className="h-4 w-4"
 								/>
 								P2P Transactions
 							</Link>
@@ -126,44 +152,44 @@ export const Header = () => {
 								href="/dashboard/reversals"
 								className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
 							>
-								<Image src={MergeIcon} alt="reversals" className="h-5 w-5" />
+								<Image src={MergeIcon} alt="reversals" className="h-4 w-4" />
 								Reversals
 							</Link>
 							<Link
-								href="/dashboard/Wallet-funding"
+								href="/dashboard/wallet-funding"
 								className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
 							>
 								<Image
 									src={DownArrowIcon}
 									alt="wallet funding"
-									className="h-5 w-5"
+									className="h-4 w-4"
 								/>
 								Wallet funding
 							</Link>
 							<Link
-								href="/dashboard/Wallet-funding"
+								href="/dashboard/outflow-transfer"
 								className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
 							>
 								<Image
 									src={ArrowIcon}
 									alt="outflow transfer"
-									className="h-5 w-5"
+									className="h-4 w-4"
 								/>
 								Outflow transfers
 							</Link>
 							<Link
-								href="/dashboard/Wallet-funding"
+								href="/dashboard/journal-entries"
 								className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
 							>
 								<Image
 									src={JournalIcon}
 									alt="journal icon"
-									className="h-5 w-5"
+									className="h-4 w-4"
 								/>
 								Journal entries
 							</Link>
 						</nav>
-						<div className="mt-auto lg:w-[220.8px] md:w-[180px] w-[150px] h-[70px] px-2 py-1.5 flex items-center justify-between border-r border-t-0 border-b-0 border-l-0 bg-white">
+						<div className="mt-auto lg:w-[220.8px] md:w-[180px] w-[150px] h-[70px] px-2 py-1.5 flex items-center justify-between ">
 							<div className="icon relative flex items-center justify-center">
 								<Image src={apexIcon} alt="icon" className="w-full h-full" />
 								<Image

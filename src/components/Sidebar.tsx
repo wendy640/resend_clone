@@ -40,13 +40,13 @@ export function Sidebar() {
 			className="hidden md:grid md:grid-cols-[220px_1fr] lg:grid-cols-[225px_1fr] min-h-screen"
 			style={{ backgroundColor: "#FAFAFA" }}
 		>
-			<div className="border-r bg-subtle">
+			<div className="border-r " style={{ border: "#FAFAFA" }}>
 				<div className="flex h-full max-h-screen flex-col">
-					<div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6 gap-3">
-						<div className="avatar rounded-full flex items-center justify-around gap-8">
+					<div className="flex h-14 items-center  px-4 lg:h-[60px] lg:px-6 gap-3">
+						<div className="avatar rounded-full flex items-center justify-around gap-12">
 							<div className="flex items-center gap-2">
-								<Image src={profile} alt="user-pics" width={25} height={25} />
-								<p className="lg:text-[14px] md:text-[10px] text-muted-foreground text-[12px]">
+								<Image src={profile} alt="user-pics" width={22} height={22} />
+								<p className="lg:text-[12px] md:text-[12px] text-muted-foreground font-medium text-sm">
 									Henry Nnalue
 								</p>
 							</div>
@@ -68,10 +68,10 @@ export function Sidebar() {
 						</div>
 					</div>
 					<div className="flex-1">
-						<nav className="grid items-start px-2 text-sm font-medium lg:px-4">
+						<nav className="grid items-start px-2  text-sm font-medium lg:px-4">
 							<Link
 								href="/"
-								className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+								className="flex items-center gap-3  rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary"
 							>
 								<Image
 									src={DashboardIcon}
@@ -82,7 +82,7 @@ export function Sidebar() {
 							</Link>
 							<Link
 								href="/dashboard/wallet"
-								className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+								className="flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary"
 							>
 								<Image src={WalletIcon} alt="wallet" className="h-4 w-4" />
 								Wallet
@@ -92,7 +92,7 @@ export function Sidebar() {
 							</Link>
 							<Link
 								href="/dashboard/transactions"
-								className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
+								className="flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary"
 							>
 								<Image
 									src={TransactionIcon}
@@ -103,14 +103,14 @@ export function Sidebar() {
 							</Link>
 							<Link
 								href="/dashboard/reversals"
-								className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+								className="flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary"
 							>
 								<Image src={MergeIcon} alt="reverasls" className="h-4 w-4" />
 								Reversals
 							</Link>
 							<Link
 								href="/dashboard/wallet-funding"
-								className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+								className="flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary"
 							>
 								<Image
 									src={DownArrowIcon}
@@ -121,7 +121,7 @@ export function Sidebar() {
 							</Link>
 							<Link
 								href="/dashboard/outflow-transfer"
-								className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+								className="flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary"
 							>
 								<Image
 									src={ArrowIcon}
@@ -132,7 +132,7 @@ export function Sidebar() {
 							</Link>
 							<Link
 								href="/dashboard/journal-entries"
-								className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+								className="flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary"
 							>
 								<Image
 									src={JournalIcon}
@@ -143,7 +143,7 @@ export function Sidebar() {
 							</Link>
 						</nav>
 					</div>
-					<div className="mt-auto lg:w-[220.8px] md:w-[220px] w-[220px] h-[70px] px-2 py-1.5 flex items-center justify-between border-r border-t-0 border-b-0 border-l-0 bg-white">
+					<div className="mt-auto lg:w-[224px] md:w-[224px] w-[224px] h-[70px] px-2 py-1.5 flex items-center justify-between border-t-0 border-b-0  bg-white">
 						<div className="icon relative flex items-center justify-center">
 							<Image src={apexIcon} alt="icon" className="w-full h-full" />
 							<Image
