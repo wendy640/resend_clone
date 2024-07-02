@@ -75,7 +75,7 @@ export const Header = () => {
 
 	return (
 		<div className="flex-1 flex flex-col">
-			<header className="flex w-full h-14 items-center gap-4 border-b  px-4 lg:h-[60px] lg:px-6">
+			<header className="flex w-full h-14 items-center gap-4  border-b  ">
 				<HamburgerSheet>
 					<HamburgerSheetTrigger asChild>
 						<Button
@@ -212,16 +212,11 @@ export const Header = () => {
 						</div>
 					</HamburgerSheetContent>
 				</HamburgerSheet>
-				<div className="flex gap-4 p-3 justify-between items-center  text-[14px]  ">
+				<div className="flex gap-4 px-3 justify-between items-center  text-[14px]  ">
 					<div className="w-full text-center lg:text-left">{headerText}</div>
 				</div>
 			</header>
-			<main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
-				{/* <div className="flex items-center">
-					<h1 className="text-lg font-semibold md:text-2xl">Orders</h1>
-				</div> */}
-				{/* Page content */}
-			</main>
+			
 		</div>
 	);
 };
