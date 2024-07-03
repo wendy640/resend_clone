@@ -1,10 +1,26 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { TbUsersGroup } from "react-icons/tb";
+import { GalleryVertical, Globe, HardDrive, LockKeyhole, Mail, Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+
+import { Button } from "@/components/ui/button";
+
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import profile from "../images/Avatar.png";
-import { ChevronsUpDown, Plus } from "lucide-react";
+import {
+	ChevronsUpDown,
+	CircleUser,
+	Ellipsis,
+	House,
+	Link2,
+	ListChecks,
+	LogOut,
+	Plus,
+	SunMoon,
+} from "lucide-react";
 import DashboardIcon from "../images/dashboard.svg";
 import JournalIcon from "../images/journal.svg";
 import ArrowIcon from "../images/arrow.svg";
@@ -25,18 +41,22 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ComboboxDemo } from "./Combobox";
 import { Badge } from "./ui/badge";
+import { RiBarChart2Line } from "react-icons/ri";
+import { HiMiniArrowsUpDown } from "react-icons/hi2";
+import { VscSettings } from "react-icons/vsc";
 
 export function Sidebar() {
+	const [loginEmail, setLoginEmail] = useState("chinwe640@gmail.com");
 	const pathname = usePathname();
-
-	const isActive = (path:string) => pathname === path;
-
+  const getInitial = (email: string) => email.charAt(0).toUpperCase();
+	const isActive = (path: string) => pathname === path;
+	const truncateEmail = (email: string) => {
+		return email.length > 12 ? email.substring(0, 12) + "..." : email;
+	};
+const { setTheme, theme } = useTheme();
 	return (
-		<div
-			className="hidden md:grid md:grid-cols-[220px_1fr] lg:grid-cols-[250px_1fr] min-h-screen"
-			style={{ backgroundColor: "#FAFAFA" }}
-		>
-			<div className="border-r" style={{ borderColor: "#F4F4F5" }}>
+		<div className="hidden md:grid md:grid-cols-[220px_1fr] lg:grid-cols-[250px_1fr] min-h-screen bg-bg-subtle dark:bg-slate-950">
+			<div className="border-r border-gray-100-custom dark:border-gray-700">
 				<div className="flex h-full max-h-screen flex-col">
 					<div className="flex h-14 items-center px-2 lg:h-[60px] lg:px-6 gap-3">
 						<div className="text-lg font-bold flex items-center justify-center gap-4">
@@ -62,11 +82,7 @@ export function Sidebar() {
 									isActive("/dashboard/emails") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<Image
-									src={DashboardIcon}
-									alt="dashboard"
-									className="h-4 w-4"
-								/>
+								<Mail className="h-4 w-4" />
 								Emails
 							</Link>
 							<Link
@@ -75,7 +91,7 @@ export function Sidebar() {
 									isActive("/dashboard/wallet") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<Image src={WalletIcon} alt="wallet" className="h-4 w-4" />
+								<HardDrive className="h-4 w-4" />
 								Broadcasts
 							</Link>
 							<Link
@@ -84,11 +100,7 @@ export function Sidebar() {
 									isActive("/dashboard/audiences") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<Image
-									src={TransactionIcon}
-									alt="transaction"
-									className="h-4 w-4"
-								/>
+								<TbUsersGroup className="h-4 w-4" />
 								Audiences
 							</Link>
 							<Link
@@ -97,11 +109,7 @@ export function Sidebar() {
 									isActive("/dashboard/metrics") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<Image
-									src={TransactionIcon}
-									alt="transaction"
-									className="h-4 w-4"
-								/>
+								<RiBarChart2Line className="h-4 w-4" />
 								Metrics
 							</Link>
 							<Link
@@ -110,11 +118,7 @@ export function Sidebar() {
 									isActive("/dashboard/domains") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<Image
-									src={TransactionIcon}
-									alt="transaction"
-									className="h-4 w-4"
-								/>
+								<Globe className="h-4 w-4" />
 								Domains
 							</Link>
 							<Link
@@ -123,7 +127,7 @@ export function Sidebar() {
 									isActive("/dashboard/logs") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<Image src={MergeIcon} alt="reversals" className="h-4 w-4" />
+								<GalleryVertical className="h-4 w-4" />
 								Logs
 							</Link>
 							<Link
@@ -132,11 +136,7 @@ export function Sidebar() {
 									isActive("/dashboard/api-keys") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<Image
-									src={DownArrowIcon}
-									alt="wallet funding"
-									className="h-4 w-4"
-								/>
+								<LockKeyhole className="h-4 w-4" />
 								Api Keys
 							</Link>
 							<Link
@@ -145,11 +145,7 @@ export function Sidebar() {
 									isActive("/dashboard/webhooks") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<Image
-									src={ArrowIcon}
-									alt="outflow transfer"
-									className="h-4 w-4"
-								/>
+								<HiMiniArrowsUpDown className="h-4 w-4" />
 								Web Hooks
 							</Link>
 							<Link
@@ -158,34 +154,63 @@ export function Sidebar() {
 									isActive("/dashboard/settings") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<Image
-									src={JournalIcon}
-									alt="journal entries"
-									className="h-4 w-4"
-								/>
+								<VscSettings className="h-4 w-4" />
 								Settings
 							</Link>
 						</nav>
 					</div>
-					<div className="mt-auto lg:w-[224px] md:w-[224px] w-[224px] h-[70px] px-2 py-1.5 flex items-center justify-between border-t-0 border-b-0 bg-white">
-						<div className="icon relative flex items-center justify-center">
-							<Image src={apexIcon} alt="icon" className="w-full h-full" />
-							<Image
-								src={databaseIcon}
-								alt="icon"
-								className="absolute w-5 h-4"
-							/>
-						</div>
-						<div className="text flex flex-col leading-[20px]">
-							<p className="ledger-text lg:text-[12px] md:text-[8px] text-[px] font-bold text-[#0E121B]">
-								Ledger
+					<div className="mt-auto lg:w-[224px] md:w-[224px] w-[224px] h-[70px] px-2 py-1.5 flex items-center justify-between">
+						<div className="flex h-14 items-center px-4 lg:h-[60px] lg:px-6 gap-3">
+							<div className="avatar flex items-center justify-center rounded-full bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 h-7 w-7 relative shadow-light-top-right dark:shadow-dark-top-right">
+								<p className="text-[12px]">{getInitial(loginEmail)}</p>
+							</div>
+							<p className="lg:text-[13px] md:text-[13px] font-medium text-sm text-gray-600 dark:text-gray-200">
+								{truncateEmail(loginEmail)}
 							</p>
-							<p className="admin-text lg:text-[12px] md:text-[8px] text-[6px] text-[#525866]">
-								Admin Dashboard
-							</p>
-						</div>
-						<div className="combo">
-							<ComboboxDemo />
+							<div>
+								<DropdownMenu>
+									<DropdownMenuTrigger asChild>
+										<Ellipsis className="text-gray-500 w-4 h-4" />
+									</DropdownMenuTrigger>
+
+									<DropdownMenuContent align="end">
+										<DropdownMenuItem
+											onClick={() =>
+												setTheme(theme === "light" ? "dark" : "light")
+											}
+										>
+											<div className="flex gap-2">
+												{theme === "light" ? <Moon /> : <Sun />}
+												<div>Toggle Theme</div>
+											</div>
+										</DropdownMenuItem>
+										<DropdownMenuItem>
+											<div className="flex gap-2">
+												<ListChecks />
+												<div>Onboarding</div>
+											</div>
+										</DropdownMenuItem>
+										<DropdownMenuItem>
+											<div className="flex gap-2">
+												<Link2 />
+												<div>Home page</div>
+											</div>
+										</DropdownMenuItem>
+										<DropdownMenuItem>
+											<div className="flex gap-2">
+												<CircleUser />
+												<div>Profile</div>
+											</div>
+										</DropdownMenuItem>
+										<DropdownMenuItem>
+											<div className="flex gap-2">
+												<LogOut />
+												<div>Logout</div>
+											</div>
+										</DropdownMenuItem>
+									</DropdownMenuContent>
+								</DropdownMenu>
+							</div>
 						</div>
 					</div>
 				</div>

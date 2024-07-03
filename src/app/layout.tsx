@@ -4,12 +4,13 @@ import "./globals.css";
 import { Sidebar } from "@/components/Sidebar";
 import {Header} from "@/components/Header";
 import { GeistSans } from "geist/font/sans";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "Wallet App",
-	description: "creating a ledger wallet account",
+	title: "Resend Clone",
+	description: "recreating the website Resend",
 };
 
 export default function RootLayout({
@@ -18,13 +19,20 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<body className={`${inter.className} flex  items-start justify-between`}>
-				<Sidebar  />
-				<main className="grid w-full h-full ">
-					<Header />
-					{children}
-				</main>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<Sidebar />
+					<main className="grid w-full h-full ">
+						<Header />
+						{children}
+					</main>
+				</ThemeProvider>
 			</body>
 		</html>
 	);
