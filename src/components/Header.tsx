@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { usePathname } from "next/navigation";
 import { ComboboxDemo } from "./Combobox";
 import profile from "../images/Avatar.png";
-import { ChevronsUpDown } from "lucide-react";
+import { ChevronsUpDown, Menu } from "lucide-react";
+import { HiOutlineChatBubbleLeftEllipsis } from "react-icons/hi2";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -16,17 +16,16 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
-	Bell,
-	CircleUser,
-	Home,
-	LineChart,
-	Menu,
-	Package,
-	Package2,
-	Search,
-	ShoppingCart,
-	Users,
-} from "lucide-react";
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
+import {
+	Popover,
+	PopoverContent,
+	PopoverTrigger,
+} from "@/components/ui/popover";
 import Image from "next/image";
 import DashboardIcon from "../images/dashboard.svg";
 import JournalIcon from "../images/journal.svg";
@@ -42,17 +41,11 @@ import {
 } from "@/components/MobileHambuger";
 import apexIcon from "../images/Apex.svg";
 import databaseIcon from "../images/database.svg";
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
+import { GoArrowUpRight } from "react-icons/go";
+import { Feedback } from "./Feedback";
 
 export const Header = () => {
-  const pathname = usePathname();
-	// Define a mapping between paths and header texts
+	const pathname = usePathname();
 	const pathToHeaderText: { [key: string]: string } = {
 		"/": "Dashboard",
 		"/dashboard/wallet": "Wallet",
@@ -64,18 +57,16 @@ export const Header = () => {
 		"/dashboard/journal-entries": "Journal Entries",
 	};
 
-	// Initialize state with the current pathname
 	const initialHeaderText = pathToHeaderText[pathname] || "Dashboard";
 	const [headerText, setHeaderText] = useState(initialHeaderText);
 
 	useEffect(() => {
-		// Update the header text based on the current path
 		setHeaderText(pathToHeaderText[pathname] || "Dashboard");
 	}, [pathname]);
 
 	return (
 		<div className="flex-1 flex flex-col">
-			<header className="flex w-full h-14 items-center gap-4  border-b  ">
+			<header className="flex w-full h-14 items-center gap-4 border-b px-4">
 				<HamburgerSheet>
 					<HamburgerSheetTrigger asChild>
 						<Button
@@ -89,10 +80,10 @@ export const Header = () => {
 					</HamburgerSheetTrigger>
 					<HamburgerSheetContent
 						side="left"
-						className="flex flex-col "
+						className="flex flex-col"
 						style={{ backgroundColor: "#FAFAFA" }}
 					>
-						<nav className="grid gap-2  text-sm font-medium lg:px-4">
+						<nav className="grid gap-2 text-sm font-medium lg:px-4">
 							<div className="avatar rounded-full flex items-center justify-around my-5 gap-8">
 								<div className="flex items-center gap-2">
 									<Image src={profile} alt="user-pics" width={25} height={25} />
@@ -133,9 +124,6 @@ export const Header = () => {
 							>
 								<Image src={WalletIcon} alt="wallet" className="h-4 w-4" />
 								Wallets
-								{/* <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-									6
-								</Badge> */}
 							</Link>
 							<Link
 								href="/dashboard/transactions"
@@ -212,11 +200,38 @@ export const Header = () => {
 						</div>
 					</HamburgerSheetContent>
 				</HamburgerSheet>
-				<div className="flex gap-4 px-3 justify-between items-center  text-[14px]  ">
-					<div className="w-full text-center lg:text-left">{headerText}</div>
+				<div className="header-content flex-1 flex justify-end gap-4 items-center text-[14px]">
+					<TooltipProvider>
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<Popover>
+									<PopoverTrigger asChild>
+										<Button variant="outline" className="bg-bg-subtle">
+											<HiOutlineChatBubbleLeftEllipsis className="mr-2" />
+											Feedback
+										</Button>
+									</PopoverTrigger>
+									<PopoverContent>
+										<Feedback />
+									</PopoverContent>
+								</Popover>
+							</TooltipTrigger>
+							<TooltipContent>
+								<p>Open Feedback</p>
+							</TooltipContent>
+						</Tooltip>
+					</TooltipProvider>
+					<div className="">Help</div>
+				
+						<a href="https://ui.shadcn.com/docs">
+								<div className="flex">
+							Docs
+							<GoArrowUpRight className="w-5 h-5" />
+								</div>
+						</a>
+				
 				</div>
 			</header>
-			
 		</div>
 	);
 };

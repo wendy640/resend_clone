@@ -82,3 +82,31 @@
     box-shadow:  -0px -1px 0px rgba(255, 255, 255, 0.3);
   }
 }
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.sidebar-icon:hover {
+  animation: bounce 0.5s ease-in-out;
+}
+
+.sidebar-icon-scale:hover {
+  animation: scale-up 0.5s ease-in-out;
+}

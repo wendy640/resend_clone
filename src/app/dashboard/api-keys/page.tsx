@@ -1,8 +1,9 @@
+import { ApiKeyTable } from '@/components/ApiKeyTable'
 import React from 'react'
 
 const ApiKeys = () => {
   return (
-    <div>ApiKeys</div>
+    <div><ApiKeyTable/></div>
   )
 }
 

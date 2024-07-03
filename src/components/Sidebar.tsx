@@ -1,12 +1,20 @@
-"use client";
+"use client"
 import React, { useState } from "react";
 import Link from "next/link";
 import { TbUsersGroup } from "react-icons/tb";
-import { GalleryVertical, Globe, HardDrive, LockKeyhole, Mail, Moon, Sun } from "lucide-react";
+import {
+	GalleryVertical,
+	Globe,
+	HardDrive,
+	LockKeyhole,
+	Mail,
+	Moon,
+	Sun,
+} from "lucide-react";
 import { useTheme } from "next-themes";
+import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
-
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import profile from "../images/Avatar.png";
@@ -21,15 +29,7 @@ import {
 	Plus,
 	SunMoon,
 } from "lucide-react";
-import DashboardIcon from "../images/dashboard.svg";
-import JournalIcon from "../images/journal.svg";
-import ArrowIcon from "../images/arrow.svg";
-import MergeIcon from "../images/merge.svg";
-import DownArrowIcon from "../images/arrow-big-down-dash.svg";
-import TransactionIcon from "../images/transaction.svg";
-import WalletIcon from "../images/wallet.svg";
-import apexIcon from "../images/Apex.svg";
-import databaseIcon from "../images/database.svg";
+
 import star from "../images/star.svg";
 import {
 	DropdownMenu,
@@ -48,12 +48,18 @@ import { VscSettings } from "react-icons/vsc";
 export function Sidebar() {
 	const [loginEmail, setLoginEmail] = useState("chinwe640@gmail.com");
 	const pathname = usePathname();
-  const getInitial = (email: string) => email.charAt(0).toUpperCase();
+	const getInitial = (email: string) => email.charAt(0).toUpperCase();
 	const isActive = (path: string) => pathname === path;
 	const truncateEmail = (email: string) => {
 		return email.length > 12 ? email.substring(0, 12) + "..." : email;
 	};
-const { setTheme, theme } = useTheme();
+	const { setTheme, theme } = useTheme();
+
+	const iconVariants = {
+		hover: { scale: 1.2, rotate: 15 },
+		tap: { scale: 0.9, rotate: -15 },
+	};
+
 	return (
 		<div className="hidden md:grid md:grid-cols-[220px_1fr] lg:grid-cols-[250px_1fr] min-h-screen bg-bg-subtle dark:bg-slate-950">
 			<div className="border-r border-gray-100-custom dark:border-gray-700">
@@ -82,7 +88,13 @@ const { setTheme, theme } = useTheme();
 									isActive("/dashboard/emails") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<Mail className="h-4 w-4" />
+								<motion.div
+									variants={iconVariants}
+									whileHover="hover"
+									whileTap="tap"
+								>
+									<Mail className="h-4 w-4" />
+								</motion.div>
 								Emails
 							</Link>
 							<Link
@@ -91,7 +103,13 @@ const { setTheme, theme } = useTheme();
 									isActive("/dashboard/wallet") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<HardDrive className="h-4 w-4" />
+								<motion.div
+									variants={iconVariants}
+									whileHover="hover"
+									whileTap="tap"
+								>
+									<HardDrive className="h-4 w-4" />
+								</motion.div>
 								Broadcasts
 							</Link>
 							<Link
@@ -100,7 +118,13 @@ const { setTheme, theme } = useTheme();
 									isActive("/dashboard/audiences") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<TbUsersGroup className="h-4 w-4" />
+								<motion.div
+									variants={iconVariants}
+									whileHover="hover"
+									whileTap="tap"
+								>
+									<TbUsersGroup className="h-4 w-4" />
+								</motion.div>
 								Audiences
 							</Link>
 							<Link
@@ -109,7 +133,13 @@ const { setTheme, theme } = useTheme();
 									isActive("/dashboard/metrics") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<RiBarChart2Line className="h-4 w-4" />
+								<motion.div
+									variants={iconVariants}
+									whileHover="hover"
+									whileTap="tap"
+								>
+									<RiBarChart2Line className="h-4 w-4" />
+								</motion.div>
 								Metrics
 							</Link>
 							<Link
@@ -118,7 +148,13 @@ const { setTheme, theme } = useTheme();
 									isActive("/dashboard/domains") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<Globe className="h-4 w-4" />
+								<motion.div
+									variants={iconVariants}
+									whileHover="hover"
+									whileTap="tap"
+								>
+									<Globe className="h-4 w-4" />
+								</motion.div>
 								Domains
 							</Link>
 							<Link
@@ -127,7 +163,13 @@ const { setTheme, theme } = useTheme();
 									isActive("/dashboard/logs") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<GalleryVertical className="h-4 w-4" />
+								<motion.div
+									variants={iconVariants}
+									whileHover="hover"
+									whileTap="tap"
+								>
+									<GalleryVertical className="h-4 w-4" />
+								</motion.div>
 								Logs
 							</Link>
 							<Link
@@ -136,7 +178,13 @@ const { setTheme, theme } = useTheme();
 									isActive("/dashboard/api-keys") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<LockKeyhole className="h-4 w-4" />
+								<motion.div
+									variants={iconVariants}
+									whileHover="hover"
+									whileTap="tap"
+								>
+									<LockKeyhole className="h-4 w-4" />
+								</motion.div>
 								Api Keys
 							</Link>
 							<Link
@@ -145,7 +193,13 @@ const { setTheme, theme } = useTheme();
 									isActive("/dashboard/webhooks") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<HiMiniArrowsUpDown className="h-4 w-4" />
+								<motion.div
+									variants={iconVariants}
+									whileHover="hover"
+									whileTap="tap"
+								>
+									<HiMiniArrowsUpDown className="h-4 w-4" />
+								</motion.div>
 								Web Hooks
 							</Link>
 							<Link
@@ -154,7 +208,13 @@ const { setTheme, theme } = useTheme();
 									isActive("/dashboard/settings") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
-								<VscSettings className="h-4 w-4" />
+								<motion.div
+									variants={iconVariants}
+									whileHover="hover"
+									whileTap="tap"
+								>
+									<VscSettings className="h-4 w-4" />
+								</motion.div>
 								Settings
 							</Link>
 						</nav>

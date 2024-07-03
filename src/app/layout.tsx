@@ -5,7 +5,7 @@ import { Sidebar } from "@/components/Sidebar";
 import {Header} from "@/components/Header";
 import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "@/components/ThemeProvider";
-
+import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -31,6 +31,7 @@ export default function RootLayout({
 					<main className="grid w-full h-full ">
 						<Header />
 						{children}
+						<Toaster />
 					</main>
 				</ThemeProvider>
 			</body>
