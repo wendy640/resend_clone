@@ -110,3 +110,46 @@
 .sidebar-icon-scale:hover {
   animation: scale-up 0.5s ease-in-out;
 }
+
+    .mail-icon {
+        position: relative;
+        width: 34px; /* Corresponds to w-8 */
+  height: 34px; /* Corresponds to h-8 */
+  display: flex;
+  border: 2px solid rgb(162, 162, 162);
+  border-radius: 8px;
+    }
+
+    .mail-icon::before,
+    .mail-icon::after {
+        content: '';
+        position: absolute;
+        border: 1 solid rgb(162, 162, 162);
+       
+    }
+    /* .mail-icon {
+  position: relative;
+  width: 40px; 
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid gray; 
+} */
+
+    .mail-icon::before {
+        width: 1px;
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .mail-icon::after {
+        height: 1px;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+.header{
+  border-radius: 5px;
+}

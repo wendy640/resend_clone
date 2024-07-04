@@ -66,7 +66,7 @@ export const Header = () => {
 
 	return (
 		<div className="flex-1 flex flex-col">
-			<header className="flex w-full h-14 items-center gap-4 border-b px-4">
+			<header className="flex w-full h-14 items-center gap-4 border-b ">
 				<HamburgerSheet>
 					<HamburgerSheetTrigger asChild>
 						<Button
@@ -206,7 +206,10 @@ export const Header = () => {
 							<TooltipTrigger asChild>
 								<Popover>
 									<PopoverTrigger asChild>
-										<Button variant="outline" className="bg-bg-subtle">
+										<Button
+											variant="outline"
+											className="border border-gray-300 font-light bg-gray-100 h-8"
+										>
 											<HiOutlineChatBubbleLeftEllipsis className="mr-2" />
 											Feedback
 										</Button>
@@ -222,14 +225,13 @@ export const Header = () => {
 						</Tooltip>
 					</TooltipProvider>
 					<div className="">Help</div>
-				
-						<a href="https://ui.shadcn.com/docs">
-								<div className="flex">
+
+					<a href="https://ui.shadcn.com/docs">
+						<div className="flex">
 							Docs
 							<GoArrowUpRight className="w-5 h-5" />
-								</div>
-						</a>
-				
+						</div>
+					</a>
 				</div>
 			</header>
 		</div>

@@ -6,6 +6,7 @@ import {
 	GalleryVertical,
 	Globe,
 	HardDrive,
+	Inbox,
 	LockKeyhole,
 	Mail,
 	Moon,
@@ -61,7 +62,7 @@ export function Sidebar() {
 	};
 
 	return (
-		<div className="hidden md:grid md:grid-cols-[220px_1fr] lg:grid-cols-[250px_1fr] min-h-screen bg-bg-subtle dark:bg-slate-950">
+		<div className=" hidden md:grid md:grid-cols-[220px_1fr] lg:grid-cols-[250px_1fr] min-h-screen bg-bg-subtle dark:bg-slate-950">
 			<div className="border-r border-gray-100-custom dark:border-gray-700">
 				<div className="flex h-full max-h-screen flex-col">
 					<div className="flex h-14 items-center px-2 lg:h-[60px] lg:px-6 gap-3">
@@ -74,7 +75,7 @@ export function Sidebar() {
 								<Image
 									src={star}
 									alt="star"
-									className="absolute top-[-2px] right-[-2px] w-3 h-3 "
+									className="absolute top-[-2px] right-[-2px] w-3 h-3"
 								/>
 							</div>
 						</div>
@@ -108,7 +109,7 @@ export function Sidebar() {
 									whileHover="hover"
 									whileTap="tap"
 								>
-									<HardDrive className="h-4 w-4" />
+									<Inbox className="h-4 w-4" />
 								</motion.div>
 								Broadcasts
 							</Link>

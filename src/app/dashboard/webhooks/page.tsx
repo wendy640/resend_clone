@@ -12,7 +12,7 @@ const Webhooks = () => {
 			<div className="w-full max-w-7xl p-6 mt-3 ">
 				{!data ? (
 					<div
-						className="flex flex-1 items-center justify-center rounded-lg border  shadow-sm w-full h-[462px] bg-white"
+						className="flex flex-1 items-center justify-center rounded-lg border  shadow-sm w-full h-[462px] bg-white border-gray-100-custom h-462 border-r-5"
 						style={{
 							height: "462px",
 							borderRadius: "5px",
