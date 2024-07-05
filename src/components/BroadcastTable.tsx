@@ -13,7 +13,7 @@ import {
 	getSortedRowModel,
 	useReactTable,
 } from "@tanstack/react-table";
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
+import { ArrowUpDown, ChevronDown, MoreHorizontal, Plus } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -37,67 +37,68 @@ import {
 } from "@/components/ui/table";
 
 const data: Payment[] = [
+	
 	{
-		id: "m5gr84i9",
-		amount: 316,
-		status: "success",
-		email: "ken99@yahoo.com",
+		id: "bhqecj1p",
+		name: "Untitled",
+		status: "Draft",
+		created: "2 months ago",
 	},
 	{
-		id: "3u1reuv4",
-		amount: 242,
-		status: "success",
-		email: "Abe45@gmail.com",
+		id: "bhqecj2p",
+		name: "Untitled",
+		status: "Draft",
+		created: "4 months ago",
 	},
 	{
-		id: "derv1ws0",
-		amount: 837,
-		status: "processing",
-		email: "Monserrat44@gmail.com",
-	},
-	{
-		id: "5kma53ae",
-		amount: 874,
-		status: "success",
-		email: "Silas22@gmail.com",
-	},
-	{
-		id: "bhqecj4p",
-		amount: 721,
-		status: "failed",
-		email: "carmella@hotmail.com",
+		id: "bhqecj3p",
+		name: "Untitled",
+		status: "Draft",
+		created: "1 months ago",
 	},
 ];
 
 export type Payment = {
 	id: string;
-	amount: number;
-	status: "pending" | "processing" | "success" | "failed";
-	email: string;
+	name: string;
+	status: "Draft" | "processing";
+	created: string;
 };
 
 export const columns: ColumnDef<Payment>[] = [
 	{
 		id: "select",
-		header: ({ table }) => (
-			<Checkbox
-				checked={
-					table.getIsAllPageRowsSelected() ||
-					(table.getIsSomePageRowsSelected() && "indeterminate")
-				}
-				onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-				aria-label="Select all"
-			/>
-		),
-		cell: ({ row }) => (
-			<Checkbox
-				checked={row.getIsSelected()}
-				onCheckedChange={(value) => row.toggleSelected(!!value)}
-				aria-label="Select row"
-			/>
-		),
+		// header: ({ table }) => (
+		// 	<Checkbox
+		// 		checked={
+		// 			table.getIsAllPageRowsSelected() ||
+		// 			(table.getIsSomePageRowsSelected() && "indeterminate")
+		// 		}
+		// 		onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+		// 		aria-label="Select all"
+		// 	/>
+		// ),
+		// cell: ({ row }) => (
+		// 	<Checkbox
+		// 		checked={row.getIsSelected()}
+		// 		onCheckedChange={(value) => row.toggleSelected(!!value)}
+		// 		aria-label="Select row"
+		// 	/>
+		// ),
 		enableSorting: false,
 		enableHiding: false,
+	},
+	{
+		accessorKey: "name",
+		header: ({ column }) => {
+			return (
+				<Button variant="ghost">
+					
+					Name
+				</Button>
+			);
+		},
+		cell: ({ row }) => <div className="capitalize">{row.getValue("name")}</div>,
 	},
 	{
 		accessorKey: "status",
@@ -106,35 +107,13 @@ export const columns: ColumnDef<Payment>[] = [
 			<div className="capitalize">{row.getValue("status")}</div>
 		),
 	},
-	{
-		accessorKey: "email",
-		header: ({ column }) => {
-			return (
-				<Button
-					variant="ghost"
-					onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-				>
-					Email
-					<ArrowUpDown className="ml-2 h-4 w-4" />
-				</Button>
-			);
-		},
-		cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
-	},
-	{
-		accessorKey: "amount",
-		header: () => <div className="text-right">Amount</div>,
-		cell: ({ row }) => {
-			const amount = parseFloat(row.getValue("amount"));
 
-			// Format the amount as a dollar amount
-			const formatted = new Intl.NumberFormat("en-US", {
-				style: "currency",
-				currency: "USD",
-			}).format(amount);
-
-			return <div className="text-right font-medium">{formatted}</div>;
-		},
+	{
+		accessorKey: "created",
+		header: "Created",
+		cell: ({ row }) => (
+			<div className="capitalize">{row.getValue("created")}</div>
+		),
 	},
 	{
 		id: "actions",
@@ -197,7 +176,14 @@ export function BroadcastTable() {
 
 	return (
 		<div className="w-full">
-			<div className="flex items-center py-4">
+			<div className="flex justify-between items-center m-9  ">
+				<h1 className="font-bold text-3xl">Broadcast</h1>
+				<Button className="border h-9 w-21 font-medium">
+					<Plus className="mr-2 bg-slate-3 size-4" />
+					Create email
+				</Button>
+			</div>
+			{/* <div className="flex items-center py-4">
 				<Input
 					placeholder="Filter emails..."
 					value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
@@ -232,10 +218,10 @@ export function BroadcastTable() {
 							})}
 					</DropdownMenuContent>
 				</DropdownMenu>
-			</div>
-			<div className="rounded-md border">
-				<Table>
-					<TableHeader>
+			</div> */}
+			<div className="rounded-lg ">
+				<Table className="h-7">
+					<TableHeader className="rounded-lg border">
 						{table.getHeaderGroups().map((headerGroup) => (
 							<TableRow key={headerGroup.id}>
 								{headerGroup.headers.map((header) => {
@@ -259,6 +245,7 @@ export function BroadcastTable() {
 								<TableRow
 									key={row.id}
 									data-state={row.getIsSelected() && "selected"}
+									className=""
 								>
 									{row.getVisibleCells().map((cell) => (
 										<TableCell key={cell.id}>
@@ -272,10 +259,7 @@ export function BroadcastTable() {
 							))
 						) : (
 							<TableRow>
-								<TableCell
-									colSpan={columns.length}
-									className="h-24 text-center"
-								>
+								<TableCell colSpan={columns.length} className=" text-center">
 									No results.
 								</TableCell>
 							</TableRow>
@@ -307,6 +291,7 @@ export function BroadcastTable() {
 					</Button>
 				</div>
 			</div>
+			
 		</div>
 	);
 }

@@ -63,6 +63,7 @@ export function Sidebar() {
 
 	return (
 		<div className=" hidden md:grid md:grid-cols-[220px_1fr] lg:grid-cols-[250px_1fr] min-h-screen bg-bg-subtle dark:bg-slate-950">
+			{/* <div className="dark:bg-root hidden h-screen w-[250px] flex-shrink-0 flex-col justify-between border-r border-slate-4 bg-slate-1 px-4 pb-6 dark:border-slate-6 md:flex"> */}
 			<div className="border-r border-gray-100-custom dark:border-gray-700">
 				<div className="flex h-full max-h-screen flex-col">
 					<div className="flex h-14 items-center px-2 lg:h-[60px] lg:px-6 gap-3">
@@ -85,7 +86,7 @@ export function Sidebar() {
 						<nav className="grid items-start px-2 text-sm font-medium lg:px-4">
 							<Link
 								href="/dashboard/emails"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary ${
+								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80  transition-all hover:text-primary ${
 									isActive("/dashboard/emails") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
@@ -100,7 +101,7 @@ export function Sidebar() {
 							</Link>
 							<Link
 								href="/dashboard/broadcasts"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary ${
+								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
 									isActive("/dashboard/wallet") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
@@ -115,7 +116,7 @@ export function Sidebar() {
 							</Link>
 							<Link
 								href="/dashboard/audiences"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary ${
+								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
 									isActive("/dashboard/audiences") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
@@ -130,7 +131,7 @@ export function Sidebar() {
 							</Link>
 							<Link
 								href="/dashboard/metrics"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary ${
+								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
 									isActive("/dashboard/metrics") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
@@ -145,7 +146,7 @@ export function Sidebar() {
 							</Link>
 							<Link
 								href="/dashboard/domains"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary ${
+								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
 									isActive("/dashboard/domains") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
@@ -160,7 +161,7 @@ export function Sidebar() {
 							</Link>
 							<Link
 								href="/dashboard/logs"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary ${
+								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
 									isActive("/dashboard/logs") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
@@ -175,7 +176,7 @@ export function Sidebar() {
 							</Link>
 							<Link
 								href="/dashboard/api-keys"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary ${
+								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
 									isActive("/dashboard/api-keys") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
@@ -190,7 +191,7 @@ export function Sidebar() {
 							</Link>
 							<Link
 								href="/dashboard/webhooks"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary ${
+								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
 									isActive("/dashboard/webhooks") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
@@ -205,7 +206,7 @@ export function Sidebar() {
 							</Link>
 							<Link
 								href="/dashboard/settings"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary ${
+								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
 									isActive("/dashboard/settings") ? " bg-[#F4F4F5]" : ""
 								}`}
 							>
