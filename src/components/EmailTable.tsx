@@ -51,7 +51,6 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 import { Badge } from "./ui/badge";
-import { Mailborder, Mailbox } from "./Mailbox";
 
 const data: Payment[] = [
 	{
@@ -122,7 +121,7 @@ export const columns: ColumnDef<Payment>[] = [
 		cell: ({ row }) => (
 			<div className="flex gap-2 items-center">
 				<div
-					className={`mail-icon w-8 h-8 flex items-center justify-center  ${
+					className={`mail-icon w-8 h-8 flex items-center justify-center border border-gray-300 ${
 						row.getValue("status") === "delivered"
 							? "bg-emerald-50"
 							: row.getValue("status") === "bounced"
@@ -139,11 +138,6 @@ export const columns: ColumnDef<Payment>[] = [
 								: "text-[#3b82f6]"
 						} size-5 `}
 					/>
-					
-
-					
-
-
 				</div>
 				<div className="lowercase border-b-2 border-dashed border-gray-400 transition-colors duration-300 ease-in-out hover:border-blue-500">
 					{row.getValue("to")}
@@ -448,22 +442,23 @@ export function EmailTable() {
 
 				<div className="mt-4 mx-10">
 					<Table className="">
-						{/* <TableHeader className="header border rounded-xl border-gray-300 bg-gray-100 font-light justify-between"> */}
-							<TableHeader className="header  font-light justify-between">
-							{table.getHeaderGroups().map((headerGroup) => (
-								<TableRow key={headerGroup.id}>
-									{headerGroup.headers.map((header) => (
-										<TableHead key={header.id} className="h-9   ">
-											{header.isPlaceholder
-												? null
-												: flexRender(
-														header.column.columnDef.header,
-														header.getContext()
-												  )}
-										</TableHead>
-									))}
-								</TableRow>
-							))}
+						<TableHeader 	className="header border rounded-xl border-gray-300 bg-gray-100 font-light justify-between" >
+						
+								{table.getHeaderGroups().map((headerGroup) => (
+									<TableRow key={headerGroup.id}>
+										{headerGroup.headers.map((header) => (
+											<TableHead key={header.id} className="h-9 border-b border-t border-slate-6 px-3 text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100">
+												{header.isPlaceholder
+													? null
+													: flexRender(
+															header.column.columnDef.header,
+															header.getContext()
+													  )}
+											</TableHead>
+										))}
+									</TableRow>
+								))}
+							
 						</TableHeader>
 						<TableBody>
 							{table.getRowModel().rows?.length ? (
