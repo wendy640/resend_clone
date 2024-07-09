@@ -208,7 +208,7 @@ export const Header = () => {
 									<PopoverTrigger asChild>
 										<Button
 											variant="outline"
-											className="border border-gray-300 font-light bg-gray-100 h-8"
+											className="border border-gray-300 font-light bg-gray-100 h-8 dark:bg-gray-700 "
 										>
 											<HiOutlineChatBubbleLeftEllipsis className="mr-2" />
 											Feedback
