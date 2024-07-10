@@ -408,12 +408,12 @@ const textColor =
 					</div>
 				</div>
 
-				<div className="mt-6 mb-2 ml-16 text-[10px] text-gray-400">
+				<div className="mt-6 mb-2 ml-16 text-[14px] text-gray-400">
 					{" "}
 					<p>EMAIL EVENTS</p>
 					<div className="w-full overflow-x-auto bg-[url('../images/dot.jpeg')] p-8 dark:bg-[url('../images/dot.jpeg')]">
 						<div className="relative flex w-fit gap-12">
-							<span className="pointer-events-none absolute left-8 top-1/2 mt-0.5 h-0.5 w-[calc(100%-4rem)] -translate-y-8 select-none bg-[#e5e5e5] dark:bg-[#191B21] "></span>
+							<span className="pointer-events-none absolute left-16 top-1/2 mt-0.5 h-0.5 w-[calc(100%-8rem)] -translate-y-8 select-none bg-[#e5e5e5] dark:bg-[#191B21] "></span>
 							<div
 								className="relative flex min-w-[6rem] flex-col items-center justify-center gap-2"
 								style={{ opacity: "1", transform: "none" }}
@@ -422,15 +422,9 @@ const textColor =
 									data-state="closed"
 									className="group flex flex-col items-center justify-center gap-2 rounded-lg outline-none cursor-default"
 								>
-									<div
-										className="relative z-20 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-slate-6 transition duration-150 ease-in-out group-focus-visible:border-slate-8"
-										style={{
-											background:
-												"border-box linear-gradient(to bottom, #00000008, #00000000), var(--background);",
-										}}
-									>
+									<div className="relative z-20 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border-2 border-slate-500 transition duration-150 ease-in-out focus-visible:border-slate-800 bg-gradient-to-b from-black/20 to-transparent">
 										<svg
-											className="text-slate-11"
+											className="text-slate-110"
 											fill="none"
 											height="30"
 											viewBox="0 0 24 24"
@@ -454,7 +448,7 @@ const textColor =
 										</span>
 									</div>
 								</button>
-								<span className="text-center text-xs text-slate-11 font-normal">
+								<span className="text-center text-xs text-slate-110 font-normal">
 									Jul 09, 3:55 PM
 								</span>
 							</div>
@@ -466,15 +460,9 @@ const textColor =
 									data-state="closed"
 									className="group flex flex-col items-center justify-center gap-2 rounded-lg outline-none cursor-default"
 								>
-									<div
-										className="relative z-20 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-slate-6 transition duration-150 ease-in-out group-focus-visible:border-slate-8"
-										style={{
-											background:
-												"border-box linear-gradient(to bottom, #00000008, #00000000), var(--background);",
-										}}
-									>
+									<div className="relative z-20 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border-2 border-slate-500 transition duration-150 ease-in-out focus-visible:border-slate-800 bg-gradient-to-b from-black/20 to-transparent">
 										<svg
-											className="text-green-11"
+											className="text-green-110"
 											fill="none"
 											height="30"
 											viewBox="0 0 24 24"
@@ -503,14 +491,14 @@ const textColor =
 										</span>
 									</div>
 								</button>
-								<span className="text-center text-xs text-slate-11 font-normal">
+								<span className="text-center text-xs text-slate-110 font-normal">
 									Jul 09, 3:55 PM
 								</span>
 							</div>
 						</div>
 					</div>
 				</div>
-				
+
 				<MailTab name={mailDetails.name} />
 			</div>
 		</div>
