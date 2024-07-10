@@ -28,7 +28,7 @@ export default function RootLayout({
 					disableTransitionOnChange
 				>
 					<Sidebar  />
-					<main className="grid w-full h-full ml-60 ">
+					<main className=" w-full h-full ml-60 ">
 						<Header />
 						{children}
 						<Toaster />

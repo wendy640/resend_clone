@@ -65,8 +65,8 @@ export const Header = () => {
 	}, [pathname]);
 
 	return (
-		<div className="flex-1 flex flex-col">
-			<header className="flex w-full h-14 items-center gap-4 border-b ">
+		<div className="flex h-[60px] items-center justify-end border-b w-full ">
+			<header className="">
 				<HamburgerSheet>
 					<HamburgerSheetTrigger asChild>
 						<Button

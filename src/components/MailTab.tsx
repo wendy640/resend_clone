@@ -67,7 +67,7 @@ const MailTab = ({ name }: MailTabProps) => {
 	};
 
 	return (
-		<div className="ml-16 my-8  max-w-6xl rounded-md border-2 border-gray-300">
+		<div className="mx-8 my-8  max-w-6xl rounded-md border-2 border-gray-300">
 			<div className="">
 				<div className="relative flex justify-between px-10 pb-3 pt-4">
 					<Tabs defaultValue="HTML" className="w-full">
@@ -78,7 +78,7 @@ const MailTab = ({ name }: MailTabProps) => {
 								<TabsTrigger value="source">Source</TabsTrigger>
 							</TabsList>
 							{copied ? (
-								<Check className="cursor-pointer" size={24} />
+								<Check className="cursor-pointer" color="gray" size={22} />
 							) : (
 								<ClipboardList
 									size={24}
@@ -95,7 +95,7 @@ const MailTab = ({ name }: MailTabProps) => {
 								</pre>
 							</div>
 						</TabsContent>
-						<TabsContent value="plain" className="py-5">
+						<TabsContent value="plain" className="py-5 text-gray-400">
 							<div>
 								<pre className="whitespace-pre-wrap">
 									{generatePlainTextContent(name)}

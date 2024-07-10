@@ -52,36 +52,38 @@ export default function EmailDetails() {
 	}, [searchParams]);
 
 	if (!mailDetails) {
-		return <div>Loading...</div>;
+		return <div className="m-20">Loading...</div>;
 	}
-const variant =
-	status === "delivered"
-		? "default"
-		: status === "bounced"
-		? "destructive"
-		: "secondary";
-const bgColor =
-	status === "delivered"
-		? "bg-green-100"
-		: status === "bounced"
-		? "bg-red-100"
-		: "bg-sky-100";
-const textColor =
-	status === "delivered"
-		? "text-[#1c6537]"
-		: status === "bounced"
-		? "text-[#b94646]"
-		: "text-[#2b70de]";
+const getStatusClasses = (status: any) => {
+	switch (status) {
+		case "delivered":
+			return {
+				variant: "default",
+				bgColor: "bg-green-100",
+				textColor: "text-[#1c6537]",
+			};
+		case "bounced":
+			return {
+				variant: "destructive",
+				bgColor: "bg-red-100",
+				textColor: "text-[#b94646]",
+			};
+		default:
+			return {
+				variant: "secondary",
+				bgColor: "bg-sky-100",
+				textColor: "text-[#2b70de]",
+			};
+	}
+	
+};
+ const { bgColor, textColor } = getStatusClasses(mailDetails.status);
 	return (
-		<div>
-			{" "}
-			<div className="container flex justify-between  mx-5 mt-8">
-				{/* <p>Status: {mailDetails.status}</p>
-			<p>Subject: {mailDetails.subject}</p>
-			<p>Sent: {mailDetails.sent}</p> */}
+		<div className="">
+			<div className="container flex justify-between  mt-8">
 				<div className="mail flex item-center ">
 					<div
-						className={`relative mr-2 w-20 h-20 flex items-center justify-center ${
+						className={`relative  w-20 h-20 flex items-center justify-center ${
 							mailDetails.status === "delivered"
 								? "bg-emerald-50"
 								: mailDetails.status === "bounced"
@@ -383,7 +385,7 @@ const textColor =
 				</div>
 			</div>
 			<div>
-				<div className="flex flex-wrap ml-16 ">
+				<div className="flex flex-wrap ml-8 ">
 					<div className="mt-8 flex w-full flex-col gap-2 md:basis-1/3">
 						<label className=" text-gray-400 uppercase text-xs">From</label>
 						<div className="flex gap-2">
@@ -395,23 +397,23 @@ const textColor =
 					<div className="mt-8 flex w-full flex-col gap-2 md:basis-1/3">
 						<label className=" text-gray-400 uppercase text-xs">Subject</label>
 						<span className="text-sm text-slate-120 font-normal">
-							Welcome to ID Banc
+							{mailDetails.subject}
 						</span>
 					</div>
 					<div className=" mt-8 flex w-full flex-col gap-2 md:basis-1/3">
 						<label className=" text-gray-400 uppercase text-xs">To</label>
 						<div className="flex h-5 items-center gap-2">
 							<span className="text-sm text-slate-120 font-normal">
-								bibiladeoyeleke@gmail.com
+								{mailDetails.to}
 							</span>
 						</div>
 					</div>
 				</div>
 
-				<div className="mt-6 mb-2 ml-16 text-[14px] text-gray-400">
+				<div className="mt-6 mb-2 mx-8 text-[14px] text-gray-400">
 					{" "}
 					<p>EMAIL EVENTS</p>
-					<div className="w-full overflow-x-auto bg-[url('../images/dot.jpeg')] p-8 dark:bg-[url('../images/dot.jpeg')]">
+					<div className="w-full overflow-x-auto p-8 bg-[url('../images/dot.jpeg')] dark:bg-[url('../images/dot.jpeg')]   backdrop-blur-md">
 						<div className="relative flex w-fit gap-12">
 							<span className="pointer-events-none absolute left-16 top-1/2 mt-0.5 h-0.5 w-[calc(100%-8rem)] -translate-y-8 select-none bg-[#e5e5e5] dark:bg-[#191B21] "></span>
 							<div
@@ -440,9 +442,9 @@ const textColor =
 											></path>
 										</svg>
 									</div>
-									<div className="bg-root">
+									<div className="">
 										<span
-											className={` items-center justify-center capitalize font-medium tracking-wide border-none   border inline-flex select-none  whitespace-nowrap  rounded text-xs h-6 px-2 ${bgColor} ${textColor}`}
+											className={`items-center justify-center capitalize font-medium tracking-wide border-none border inline-flex select-none whitespace-nowrap rounded text-xs h-6 px-2 ${bgColor} ${textColor}`}
 										>
 											{mailDetails.status}
 										</span>
@@ -485,7 +487,7 @@ const textColor =
 									</div>
 									<div className="bg-root">
 										<span
-											className={` items-center justify-center capitalize font-medium tracking-wide border-none   border inline-flex select-none  whitespace-nowrap  rounded text-xs h-6 px-2 ${bgColor} ${textColor}`}
+											className={`items-center justify-center capitalize font-medium tracking-wide border-none border inline-flex select-none whitespace-nowrap rounded text-xs h-6 px-2 ${bgColor} ${textColor}`}
 										>
 											{mailDetails.status}
 										</span>
