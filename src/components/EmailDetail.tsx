@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import MailTab from "./MailTab";
 // Define the type for mail details
 type MailDetails = {
 	id: string;
@@ -30,6 +31,7 @@ type MailDetails = {
 	status: string;
 	subject: string;
 	sent: string;
+	name: string;
 };
 
 export default function EmailDetails() {
@@ -42,9 +44,10 @@ export default function EmailDetails() {
 		const status = searchParams.get("status");
 		const subject = searchParams.get("subject");
 		const sent = searchParams.get("sent");
+		const name= searchParams.get("name");
 
-		if (id && to && status && subject && sent) {
-			setMailDetails({ id, to, status, subject, sent });
+		if (id && to && status && subject && sent && name) {
+			setMailDetails({ id, to, status, subject, sent, name });
 		}
 	}, [searchParams]);
 
@@ -382,7 +385,7 @@ const textColor =
 			<div>
 				<div className="flex flex-wrap ml-16 ">
 					<div className="mt-8 flex w-full flex-col gap-2 md:basis-1/3">
-						<label className=" text-slate-110 uppercase text-xs">From</label>
+						<label className=" text-gray-400 uppercase text-xs">From</label>
 						<div className="flex gap-2">
 							<span className="text-sm text-slate-120 font-normal">
 								"No Reply" &lt;noreply@schoolablesandbox.com&gt;
@@ -390,13 +393,13 @@ const textColor =
 						</div>
 					</div>
 					<div className="mt-8 flex w-full flex-col gap-2 md:basis-1/3">
-						<label className=" text-slate-110 uppercase text-xs">Subject</label>
+						<label className=" text-gray-400 uppercase text-xs">Subject</label>
 						<span className="text-sm text-slate-120 font-normal">
 							Welcome to ID Banc
 						</span>
 					</div>
 					<div className=" mt-8 flex w-full flex-col gap-2 md:basis-1/3">
-						<label className=" text-slate-110 uppercase text-xs">To</label>
+						<label className=" text-gray-400 uppercase text-xs">To</label>
 						<div className="flex h-5 items-center gap-2">
 							<span className="text-sm text-slate-120 font-normal">
 								bibiladeoyeleke@gmail.com
@@ -404,6 +407,7 @@ const textColor =
 						</div>
 					</div>
 				</div>
+
 				<div className="mt-6 mb-2 ml-16 text-[10px] text-gray-400">
 					{" "}
 					<p>EMAIL EVENTS</p>
@@ -446,7 +450,7 @@ const textColor =
 										<span
 											className={` items-center justify-center capitalize font-medium tracking-wide border-none   border inline-flex select-none  whitespace-nowrap  rounded text-xs h-6 px-2 ${bgColor} ${textColor}`}
 										>
-											{mailDetails.status }
+											{mailDetails.status}
 										</span>
 									</div>
 								</button>
@@ -506,6 +510,8 @@ const textColor =
 						</div>
 					</div>
 				</div>
+				
+				<MailTab name={mailDetails.name} />
 			</div>
 		</div>
 	);

@@ -59,6 +59,7 @@ const data: Payment[] = [
 		status: "bounced",
 		subject: "Little Debit Notification",
 		sent: "less than a minute ago",
+		name: "Nwaonu Micheal",
 	},
 	{
 		id: "bhqecj3p",
@@ -66,6 +67,7 @@ const data: Payment[] = [
 		status: "opened",
 		subject: "Little Debit Notification",
 		sent: "1 minute ago",
+		name: "Chinwe Enyidiegwu",
 	},
 	{
 		id: "bhqecj2p",
@@ -73,6 +75,7 @@ const data: Payment[] = [
 		status: "delivered",
 		subject: "Little Debit Notification",
 		sent: "3 minute ago",
+		name: "Nwaonu Micheal",
 	},
 	{
 		id: "bhqecj1p",
@@ -80,6 +83,7 @@ const data: Payment[] = [
 		status: "delivered",
 		subject: "Little Debit Notification",
 		sent: "6 minute ago",
+		name: "Nwaonu Micheal",
 	},
 	{
 		id: "bhqecj9p",
@@ -87,6 +91,7 @@ const data: Payment[] = [
 		status: "bounced",
 		subject: "Little Debit Notification",
 		sent: "1 minute ago",
+		name: "Nwaonu Micheal",
 	},
 	{
 		id: "bhqecj8p",
@@ -94,8 +99,8 @@ const data: Payment[] = [
 		status: "delivered",
 		subject: "Little Debit Notification",
 		sent: "1 minute ago",
+		name: "Nwaonu Micheal",
 	},
-	
 ];
 
 export type Payment = {
@@ -104,8 +109,9 @@ export type Payment = {
 	status: "bounced" | "delivered" | "opened";
 	subject: string;
 	sent: string;
+	name: string;
 };
-	const mailId = 100;
+
 export const columns: ColumnDef<Payment>[] = [
 	{
 		accessorKey: "to",
@@ -121,20 +127,20 @@ export const columns: ColumnDef<Payment>[] = [
 
 		cell: ({ row }) => (
 			<div className="flex  items-center">
-				 
-        <Link
-          className="flex"
-          href={{
-            pathname: `/emails/${row.original.id}`,
-            query: {
-              id: row.original.id,
-              to: row.original.to,
-              status: row.original.status,
-              subject: row.original.subject,
-              sent: row.original.sent,
-            },
-          }}
-        >
+				<Link
+					className="flex"
+					href={{
+						pathname: `/emails/${row.original.id}`,
+						query: {
+							id: row.original.id,
+							to: row.original.to,
+							status: row.original.status,
+							subject: row.original.subject,
+							sent: row.original.sent,
+							name: row.original.name,
+						},
+					}}
+				>
 					<div
 						className={`relative mr-2 w-8 h-8 flex items-center justify-center ${
 							row.getValue("status") === "delivered"
@@ -423,6 +429,7 @@ export const columns: ColumnDef<Payment>[] = [
 			<div className="capitalize">{row.getValue("subject")}</div>
 		),
 	},
+	
 	{
 		accessorKey: "sent",
 		header: "Sent",
