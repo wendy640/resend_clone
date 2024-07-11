@@ -84,142 +84,152 @@ export function Sidebar() {
 
 					<div className="flex-1">
 						<nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-							<Link
-								href="/emails"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80  transition-all hover:text-primary ${
-									isActive("/emails") ? " bg-[#F4F4F5]" : ""
-								}`}
-							>
-								<motion.div
-									variants={iconVariants}
-									whileHover="hover"
-									whileTap="tap"
-								>
-									<Mail className="h-4 w-4" />
-								</motion.div>
-								Emails
-							</Link>
-							<Link
-								href="/dashboard/broadcasts"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
-									isActive("/dashboard/wallet") ? " bg-[#F4F4F5]" : ""
-								}`}
-							>
-								<motion.div
-									variants={iconVariants}
-									whileHover="hover"
-									whileTap="tap"
-								>
-									<Inbox className="h-4 w-4" />
-								</motion.div>
-								Broadcasts
-							</Link>
-							<Link
-								href="/dashboard/audiences"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
-									isActive("/dashboard/audiences") ? " bg-[#F4F4F5]" : ""
-								}`}
-							>
-								<motion.div
-									variants={iconVariants}
-									whileHover="hover"
-									whileTap="tap"
-								>
-									<TbUsersGroup className="h-4 w-4" />
-								</motion.div>
-								Audiences
-							</Link>
-							<Link
-								href="/dashboard/metrics"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
-									isActive("/dashboard/metrics") ? " bg-[#F4F4F5]" : ""
-								}`}
-							>
-								<motion.div
-									variants={iconVariants}
-									whileHover="hover"
-									whileTap="tap"
-								>
-									<RiBarChart2Line className="h-4 w-4" />
-								</motion.div>
-								Metrics
-							</Link>
-							<Link
-								href="/dashboard/domains"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
-									isActive("/dashboard/domains") ? " bg-[#F4F4F5]" : ""
-								}`}
-							>
-								<motion.div
-									variants={iconVariants}
-									whileHover="hover"
-									whileTap="tap"
-								>
-									<Globe className="h-4 w-4" />
-								</motion.div>
-								Domains
-							</Link>
-							<Link
-								href="/dashboard/logs"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
-									isActive("/dashboard/logs") ? " bg-[#F4F4F5]" : ""
-								}`}
-							>
-								<motion.div
-									variants={iconVariants}
-									whileHover="hover"
-									whileTap="tap"
-								>
-									<GalleryVertical className="h-4 w-4" />
-								</motion.div>
-								Logs
-							</Link>
-							<Link
-								href="/dashboard/api-keys"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
-									isActive("/dashboard/api-keys") ? " bg-[#F4F4F5]" : ""
-								}`}
-							>
-								<motion.div
-									variants={iconVariants}
-									whileHover="hover"
-									whileTap="tap"
-								>
-									<LockKeyhole className="h-4 w-4" />
-								</motion.div>
-								Api Keys
-							</Link>
-							<Link
-								href="/dashboard/webhooks"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
-									isActive("/dashboard/webhooks") ? " bg-[#F4F4F5]" : ""
-								}`}
-							>
-								<motion.div
-									variants={iconVariants}
-									whileHover="hover"
-									whileTap="tap"
-								>
-									<HiMiniArrowsUpDown className="h-4 w-4" />
-								</motion.div>
-								Web Hooks
-							</Link>
-							<Link
-								href="/dashboard/settings"
-								className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
-									isActive("/dashboard/settings") ? " bg-[#F4F4F5]" : ""
-								}`}
-							>
-								<motion.div
-									variants={iconVariants}
-									whileHover="hover"
-									whileTap="tap"
-								>
-									<VscSettings className="h-4 w-4" />
-								</motion.div>
-								Settings
-							</Link>
-						</nav>
+	<Link
+		href="/emails"
+		className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80  transition-all hover:text-primary ${
+			isActive("/emails") ? " bg-[#F4F4F5]" : ""
+		}`}
+	>
+		<motion.div
+			variants={iconVariants}
+			whileHover="hover"
+			whileTap="tap"
+			className="flex items-center"
+		>
+			<Mail className="h-4 w-4" />
+		</motion.div>
+		Emails
+	</Link>
+	<Link
+		href="/dashboard/broadcasts"
+		className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
+			isActive("/dashboard/broadcasts") ? " bg-[#F4F4F5]" : ""
+		}`}
+	>
+		<motion.div
+			variants={iconVariants}
+			whileHover="hover"
+			whileTap="tap"
+			className="flex items-center"
+		>
+			<Inbox className="h-4 w-4" />
+		</motion.div>
+		Broadcasts
+	</Link>
+	<Link
+		href="/dashboard/audiences"
+		className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
+			isActive("/dashboard/audiences") ? " bg-[#F4F4F5]" : ""
+		}`}
+	>
+		<motion.div
+			variants={iconVariants}
+			whileHover="hover"
+			whileTap="tap"
+			className="flex items-center"
+		>
+			<TbUsersGroup className="h-4 w-4" />
+		</motion.div>
+		Audiences
+	</Link>
+	<Link
+		href="/dashboard/metrics"
+		className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
+			isActive("/dashboard/metrics") ? " bg-[#F4F4F5]" : ""
+		}`}
+	>
+		<motion.div
+			variants={iconVariants}
+			whileHover="hover"
+			whileTap="tap"
+			className="flex items-center"
+		>
+			<RiBarChart2Line className="h-4 w-4" />
+		</motion.div>
+		Metrics
+	</Link>
+	<Link
+		href="/dashboard/domains"
+		className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
+			isActive("/dashboard/domains") ? " bg-[#F4F4F5]" : ""
+		}`}
+	>
+		<motion.div
+			variants={iconVariants}
+			whileHover="hover"
+			whileTap="tap"
+			className="flex items-center"
+		>
+			<Globe className="h-4 w-4" />
+		</motion.div>
+		Domains
+	</Link>
+	<Link
+		href="/dashboard/logs"
+		className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
+			isActive("/dashboard/logs") ? " bg-[#F4F4F5]" : ""
+		}`}
+	>
+		<motion.div
+			variants={iconVariants}
+			whileHover="hover"
+			whileTap="tap"
+			className="flex items-center"
+		>
+			<GalleryVertical className="h-4 w-4" />
+		</motion.div>
+		Logs
+	</Link>
+	<Link
+		href="/dashboard/api-keys"
+		className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
+			isActive("/dashboard/api-keys") ? " bg-[#F4F4F5]" : ""
+		}`}
+	>
+		<motion.div
+			variants={iconVariants}
+			whileHover="hover"
+			whileTap="tap"
+			className="flex items-center"
+		>
+			<LockKeyhole className="h-4 w-4" />
+		</motion.div>
+		Api Keys
+	</Link>
+	<Link
+		href="/dashboard/webhooks"
+		className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
+			isActive("/dashboard/webhooks") ? " bg-[#F4F4F5]" : ""
+		}`}
+	>
+		<motion.div
+			variants={iconVariants}
+			whileHover="hover"
+			whileTap="tap"
+			className="flex items-center"
+		>
+			<HiMiniArrowsUpDown className="h-4 w-4" />
+		</motion.div>
+		Web Hooks
+	</Link>
+	<Link
+		href="/dashboard/settings"
+		className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80 transition-all hover:text-primary ${
+			isActive("/dashboard/settings") ? " bg-[#F4F4F5]" : ""
+		}`}
+	>
+		<motion.div
+			variants={iconVariants}
+			whileHover="hover"
+			whileTap="tap"
+			className="flex items-center"
+		>
+			<VscSettings className="h-4 w-4" />
+		</motion.div>
+		Settings
+	</Link>
+</nav>
+
 					</div>
 					<div className="mt-auto lg:w-[224px] md:w-[224px] w-[224px] h-[70px] px-2 py-1.5 flex items-center justify-between">
 						<div className="flex h-14 items-center px-4 lg:h-[60px] lg:px-6 gap-3">

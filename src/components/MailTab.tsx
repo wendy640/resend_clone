@@ -78,10 +78,10 @@ const MailTab = ({ name }: MailTabProps) => {
 								<TabsTrigger value="source">Source</TabsTrigger>
 							</TabsList>
 							{copied ? (
-								<Check className="cursor-pointer" color="gray" size={22} />
+								<Check className="cursor-pointer" color="gray" size={18} />
 							) : (
 								<ClipboardList
-									size={24}
+									size={18}
 									className="cursor-pointer"
 									color="gray"
 									onClick={() => copyToClipboard(generateHtmlContent(name))}
