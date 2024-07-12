@@ -162,7 +162,7 @@ export const columns: ColumnDef<Payment>[] = [
 				<Link
 					className="flex"
 					href={{
-						pathname: `/emails/${row.original.id}`,
+						pathname: `/dashboard/emails/${row.original.id}`,
 						query: {
 							id: row.original.id,
 							to: row.original.to,

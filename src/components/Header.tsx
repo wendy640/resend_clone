@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import { ComboboxDemo } from "./Combobox";
-import profile from "../images/Avatar.png";
+import profile from "../../public/images/Avatar.png";
 import { ChevronsUpDown, Menu } from "lucide-react";
 import { HiOutlineChatBubbleLeftEllipsis } from "react-icons/hi2";
 import {
@@ -27,20 +27,20 @@ import {
 	PopoverTrigger,
 } from "@/components/ui/popover";
 import Image from "next/image";
-import DashboardIcon from "../images/dashboard.svg";
-import JournalIcon from "../images/journal.svg";
-import ArrowIcon from "../images/arrow.svg";
-import MergeIcon from "../images/merge.svg";
-import DownArrowIcon from "../images/arrow-big-down-dash.svg";
-import TransactionIcon from "../images/transaction.svg";
-import WalletIcon from "../images/wallet.svg";
+import DashboardIcon from "../../public/images/dashboard.svg";
+import JournalIcon from "../../public/images/journal.svg";
+import ArrowIcon from "../../public/images/arrow.svg";
+import MergeIcon from "../../public/images/merge.svg";
+import DownArrowIcon from "../../public/images/arrow-big-down-dash.svg";
+import TransactionIcon from "../../public/images/transaction.svg";
+import WalletIcon from "../../public/images/wallet.svg";
 import {
 	HamburgerSheet,
 	HamburgerSheetContent,
 	HamburgerSheetTrigger,
 } from "@/components/MobileHambuger";
-import apexIcon from "../images/Apex.svg";
-import databaseIcon from "../images/database.svg";
+import apexIcon from "../../public/images/Apex.svg";
+import databaseIcon from "../../public/images/database.svg";
 import { GoArrowUpRight } from "react-icons/go";
 import { Feedback } from "./Feedback";
 

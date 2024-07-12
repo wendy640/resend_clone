@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import circle from "../../../images/circle.png";
-import Person from "../../../images/person.svg";
+import circle from "../../../../public/images/circle1.png";
+import Person from "../../../../public/images/person.svg";
 import Image from "next/image";
 
 const Webhooks = () => {

@@ -3,7 +3,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { LiaCodeSolid } from "react-icons/lia";
-
+import ye from "../../public/images/dot.jpeg"
 import {
 	Popover,
 	PopoverContent,
@@ -416,7 +416,7 @@ const getStatusClasses = (status: any) => {
 				<div className="mt-6 mb-2 mx-8 text-[14px] text-gray-400">
 					{" "}
 					<p>EMAIL EVENTS</p>
-					<div className="w-full overflow-x-auto p-8 bg-[url('../images/dot.jpeg')] dark:bg-[url('../images/dot.jpeg')]   backdrop-blur-md">
+					<div className="w-full overflow-x-auto p-8 bg-[url('../../public/images/dot.jpeg')] dark:bg-[url('../../public/images/dot.jpeg')]   backdrop-blur-md">
 						<div className="relative flex w-fit gap-12">
 							<span className="pointer-events-none absolute left-16 top-1/2 mt-0.5 h-0.5 w-[calc(100%-8rem)] -translate-y-8 select-none bg-[#e5e5e5] dark:bg-[#191B21] "></span>
 							<div

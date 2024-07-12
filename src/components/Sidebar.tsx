@@ -18,7 +18,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import profile from "../images/Avatar.png";
+import profile from "../../public/images/Avatar.png";
 import {
 	ChevronsUpDown,
 	CircleUser,
@@ -31,7 +31,7 @@ import {
 	SunMoon,
 } from "lucide-react";
 
-import star from "../images/star.svg";
+import star from "../../public/images/star.svg";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -85,9 +85,9 @@ export function Sidebar() {
 					<div className="flex-1">
 						<nav className="grid items-start px-2 text-sm font-medium lg:px-4">
 	<Link
-		href="/emails"
+		href="/dashboard/emails"
 		className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80  transition-all hover:text-primary ${
-			isActive("/emails") ? " bg-[#F4F4F5]" : ""
+			isActive("/dashboard/emails") ? " bg-[#F4F4F5]" : ""
 		}`}
 	>
 		<motion.div

@@ -1,13 +1,7 @@
 "use client";
 import Link from "next/link";
 import * as React from "react";
-import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
-import {
-	Tooltip,
-	TooltipContent,
-	TooltipProvider,
-	TooltipTrigger,
-} from "@/components/ui/tooltip";
+
 import {
 	ColumnDef,
 	ColumnFiltersState,
@@ -21,16 +15,14 @@ import {
 	useReactTable,
 } from "@tanstack/react-table";
 import {
-	ArrowUpDown,
-	ChevronDown,
-	CodeXml,
+	
+	Globe,
 	Mail,
 	MoreHorizontal,
 } from "lucide-react";
-import { LiaCodeSolid } from "react-icons/lia";
+
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { CiSearch } from "react-icons/ci";
+
 
 import {
 	DropdownMenu,
@@ -50,8 +42,22 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
-import { Badge } from "./ui/badge";
+
 import DomainButton from "./DomainButton";
+import Image from "next/image";
+
+type Region = 'tokyo' | 'ireland'; // Add all possible region keys here
+const regionFlagMap: Record<Region, string> = {
+	tokyo: "/images/circle.png",
+	ireland: "/images/ireland.png",
+	// Add other regions and their flags
+};
+
+const pole: Record<Region, string> = {
+	tokyo: "(ap-northeast-1)",
+	ireland: "(eu-west-1)",
+	// Add other regions and their cardinal directions
+};
 
 const data: Payment[] = [
 	{
@@ -72,18 +78,32 @@ const data: Payment[] = [
 		status: "verified",
 		region: "ireland",
 	},
+	{
+		id: "bhqecj38",
+		domain: "musa0@gmail.com",
+		status: "verified",
+		region: "ireland",
+		
+	},
+	{
+		id: "bhqecj2p",
+		domain: "nwaonu123@gmail.com",
+		status: "pending",
+	region: "tokyo",
+		
+	},
 ];
 
 export type Payment = {
 	id: string;
 	domain: string;
 	status: "pending" | "verified" | "opened";
-	region: string
+	region: string;
 };
 
 export const columns: ColumnDef<Payment>[] = [
 	{
-		accessorKey: "to",
+		accessorKey: "domain",
 		header: ({ column }) => {
 			return (
 				<div
@@ -99,13 +119,12 @@ export const columns: ColumnDef<Payment>[] = [
 				<Link
 					className="flex"
 					href={{
-						pathname: `/dashboard/domain/${row.original.id}`,
+						pathname: `/dashboard/domains/${row.original.id}`,
 						query: {
 							id: row.original.id,
 							domain: row.original.domain,
 							status: row.original.status,
 							region: row.original.region,
-						
 						},
 					}}
 				>
@@ -324,7 +343,7 @@ export const columns: ColumnDef<Payment>[] = [
 								</linearGradient>
 							</defs>
 						</svg>
-						<svg
+						{/* <svg
 							className={`${
 								row.getValue("status") === "verified"
 									? "text-green-11"
@@ -338,7 +357,16 @@ export const columns: ColumnDef<Payment>[] = [
 							viewBox="0 0 32 32"
 						>
 							<path d="m31 5.109-.004-.06-.004-.053-.008-.054-.01-.056-.013-.049-.016-.057-.018-.048-.02-.054-.024-.05-.024-.047-.03-.05-.028-.043c-.01-.015-.022-.03-.034-.045-.01-.015-.022-.03-.034-.044l-.035-.038a1.113 1.113 0 0 0-.042-.044l-.012-.013-.025-.02a1.142 1.142 0 0 0-.281-.183 1.133 1.133 0 0 0-.432-.1L29.873 4H2.127l-.032.002a1.125 1.125 0 0 0-.483.123 1.133 1.133 0 0 0-.23.158l-.025.021-.013.013c-.015.014-.028.03-.042.044l-.035.038-.034.044-.034.045-.028.044-.03.05-.024.046-.024.05-.02.054-.018.048-.016.057c-.004.016-.01.033-.013.049l-.01.056-.008.054-.004.052-.003.06L1 5.128v21.746C1 27.496 1.504 28 2.127 28h27.746c.623 0 1.127-.504 1.127-1.127V5.11Zm-3.726 1.144-8.832 9.43A3.316 3.316 0 0 1 16 16.749a3.316 3.316 0 0 1-2.442-1.064l-8.832-9.43h22.549ZM3.255 25.747V7.977l8.66 9.247A5.547 5.547 0 0 0 16 19.001a5.548 5.548 0 0 0 4.087-1.777l8.66-9.246v17.769H3.253Z"></path>
-						</svg>
+						</svg> */}
+						<Globe
+							className={`${
+								row.getValue("status") === "verified"
+									? "fill-emerald-100"
+									: row.getValue("status") === "pending"
+									? "fill-[#f6a0a0]"
+									: "fill-[#3175e4]"
+							} relative w-5 h-5`}
+						/>
 					</div>
 					<span className=" flex mb-4 pt-2 lowercase cursor-pointer truncate border-b border-dashed border-slate-700 transition-colors duration-300 ease-in-out hover:border-blue-600">
 						{row.getValue("domain")}
@@ -391,14 +419,22 @@ export const columns: ColumnDef<Payment>[] = [
 	},
 
 	{
-		accessorKey: "region",
-		header: "Region",
-		cell: ({ row }) => (
-			<div className="capitalize">{row.getValue("region")}</div>
-		),
-	},
+  accessorKey: "region",
+  header: "Region",
+  cell: ({ row }) => {
+    const region = row.getValue("region") as Region; // Cast region to the Region type
+    const flagSrc = regionFlagMap[region] || ""; // Fallback to a default flag if region not found
+    const cardinal = pole[region] || "";
+    return (
+      <div className="flex items-center capitalize">
+        <Image src={flagSrc} alt={`${region} flag`} width={20} height={20} className="w-5 h-5 mr-2" />
+        {region}
+        <span className="lowercase text-gray-500 ml-2">{cardinal}</span>
+      </div>
+    );
+  },
+},
 
-	
 	{
 		id: "actions",
 		enableHiding: false,
@@ -431,6 +467,7 @@ export const columns: ColumnDef<Payment>[] = [
 ];
 
 export function DomainTable() {
+		
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
 		[]
@@ -461,11 +498,9 @@ export function DomainTable() {
 	return (
 		<div className="m-8 text-gray-600 ">
 			<div className="flex justify-between items-center m-9  ">
-				<h1 className="font-bold text-3xl">Emails</h1>
-			<DomainButton/>
+				<h1 className="font-bold text-gray-800 text-3xl">Domains</h1>
+				<DomainButton />
 			</div>
-
-			
 
 			<div className="mt-4 mx-10">
 				<Table className="min-w-full border-spacing-0  text-left">
