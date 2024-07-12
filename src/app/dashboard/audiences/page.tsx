@@ -11,23 +11,9 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-	Popover,
-	PopoverContent,
-	PopoverTrigger,
-} from "@/components/ui/popover";
-import { IoIosLink } from "react-icons/io";
+
 import { Check, ChevronDown, ClipboardList, Copy, Plus } from "lucide-react";
-import {
-	Dialog,
-	DialogClose,
-	DialogContent,
-	DialogDescription,
-	DialogFooter,
-	DialogHeader,
-	DialogTitle,
-	DialogTrigger,
-} from "@/components/ui/dialog";
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RiBarChart2Line } from "react-icons/ri";
@@ -35,6 +21,7 @@ import { TbUsersGroup } from "react-icons/tb";
 import { CiSearch } from "react-icons/ci";
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 import { Badge } from "@/components/ui/badge";
+import AudiencesButton from "@/components/AudiencesButton";
 
 const Audiences = () => {
 	type Checked = DropdownMenuCheckboxItemProps["checked"];
@@ -51,6 +38,7 @@ const Audiences = () => {
 	const [audienceId, setAudienceId] =useState("do629873-3040-4fd5-9493-");
 	const [copied, setCopied] = useState(false);
 	const [ content,setContent] = useState(false)
+
 	const copyToClipboard = (content: string) => {
 		navigator.clipboard
 			.writeText(content)
@@ -277,78 +265,44 @@ const Audiences = () => {
 					</div>
 					<div className="ml-6 mt-6">
 						<p className="text-gray-700">Audiences</p>
-						<h2 className="w-full truncate md:max-w-[800px] text-xl tracking-[-0.16px] text-slate-12 font-bold ">
-							General
-						</h2>
+						<DropdownMenu>
+							<DropdownMenuTrigger asChild>
+								<div className="flex gap-3">
+									<h2 className="w-full truncate md:max-w-[800px] text-xl tracking-[-0.16px] text-slate-12 font-bold  ">
+										General
+									</h2>
+									<ChevronDown color="gray" className="mt-1" />
+								</div>
+							</DropdownMenuTrigger>
+							<DropdownMenuContent className="w-56">
+								<DropdownMenuLabel>General</DropdownMenuLabel>
+
+								<DropdownMenuCheckboxItem
+									checked={showStatusBar}
+									onCheckedChange={setShowStatusBar}
+								>
+									General
+								</DropdownMenuCheckboxItem>
+								<DropdownMenuCheckboxItem
+									checked={showActivityBar}
+									onCheckedChange={setShowActivityBar}
+									disabled
+								>
+									General
+								</DropdownMenuCheckboxItem>
+								<DropdownMenuSeparator />
+								<DropdownMenuCheckboxItem
+									checked={showPanel}
+									onCheckedChange={setShowPanel}
+								>
+									Panel
+								</DropdownMenuCheckboxItem>
+							</DropdownMenuContent>
+						</DropdownMenu>
 					</div>
 				</div>
 
-				<div className="button flex mt-8 mr-3">
-					<div className="mr-2">
-						<Button className=" font-light h-8 w-25">
-							<Plus className="mr-2 bg-slate-3 size-4" />
-							Add Contacts
-						</Button>
-					</div>
-					<div className="mr-2">
-						<Button
-							variant="outline"
-							className="border border-gray-300 bg-gray-100 font-light h-8 w-25"
-						>
-							<LiaCodeSolid className="mr-2 bg-slate-3 size-4" />
-							API
-						</Button>
-					</div>
-					<div>
-						{" "}
-						<Button
-							variant="outline"
-							className="border border-gray-300 bg-gray-100 font-light h-8 w-8"
-						>
-							<Popover>
-								<PopoverTrigger>...</PopoverTrigger>
-								<PopoverContent>
-									{/* <IoIosLink />
-							Share Email */}{" "}
-									<Dialog>
-										<IoIosLink /> Share link
-										<DialogContent className="sm:max-w-md">
-											<DialogHeader>
-												<DialogTitle>Share link</DialogTitle>
-												<DialogDescription>
-													Anyone who has this link will be able to view this.
-												</DialogDescription>
-											</DialogHeader>
-											<div className="flex items-center space-x-2">
-												<div className="grid flex-1 gap-2">
-													<Label htmlFor="link" className="sr-only">
-														Link
-													</Label>
-													<Input
-														id="link"
-														defaultValue="https://ui.shadcn.com/docs/installation"
-														readOnly
-													/>
-												</div>
-												<Button type="submit" size="sm" className="px-3">
-													<span className="sr-only">Copy</span>
-													<Copy className="h-4 w-4" />
-												</Button>
-											</div>
-											<DialogFooter className="sm:justify-start">
-												<DialogClose asChild>
-													<Button type="button" variant="secondary">
-														Done
-													</Button>
-												</DialogClose>
-											</DialogFooter>
-										</DialogContent>
-									</Dialog>
-								</PopoverContent>
-							</Popover>
-						</Button>
-					</div>
-				</div>
+			<AudiencesButton />
 			</div>
 
 			<div className="flex flex-wrap ml-8 mr-4 my-4">

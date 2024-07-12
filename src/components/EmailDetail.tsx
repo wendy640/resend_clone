@@ -331,21 +331,24 @@ const getStatusClasses = (status: any) => {
 						</Button>
 					</div>
 					<div>
-						{" "}
 						<Button
 							variant="outline"
 							className="border border-gray-300 bg-gray-100 font-light h-8 w-8"
 						>
 							<Popover>
-								<PopoverTrigger>...</PopoverTrigger>
+								<PopoverTrigger asChild>
+									<span>...</span>
+								</PopoverTrigger>
 								<PopoverContent>
 									{/* <IoIosLink />
-							Share Email */}{" "}
+							Share Email */}
 									<Dialog>
-										<Button variant="outline">
-											<IoIosLink /> Share link
-										</Button>
-
+										<DialogTrigger asChild>
+											<div className="flex items-center">
+												<IoIosLink className="mr-2" />
+												<span>Share link</span>
+											</div>
+										</DialogTrigger>
 										<DialogContent className="sm:max-w-md">
 											<DialogHeader>
 												<DialogTitle>Share link</DialogTitle>
