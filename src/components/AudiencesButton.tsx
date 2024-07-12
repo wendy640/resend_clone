@@ -36,96 +36,28 @@ const AudiencesButton = () => {
 
 	const [addManually, setAddManually] = React.useState<Checked>(true);
 	const [csv, setCsv] = React.useState<Checked>(false);
-	const [isDialogOpen, setIsDialogOpen] = useState(false);
+	const [isDialogAudienceOpen, setIsDialogAudienceOpen] = useState(false);
 
 	const HandleAddManually = () => {
-		setIsDialogOpen(true);
+		setIsDialogAudienceOpen(true);
 	};
 
 	return (
 		<div className="button flex mt-8 mr-3">
 			<div className="mr-2">
-				<DropdownMenu>
-					<DropdownMenuTrigger asChild>
-						<Button className="font-light h-8 w-25">
-							<Plus className="mr-2 bg-slate-3 size-4" />
-							Add Contacts
-						</Button>
-					</DropdownMenuTrigger>
-					<DropdownMenuContent className="w-56">
-						<DropdownMenuCheckboxItem
-							checked={addManually}
-							onCheckedChange={setAddManually}
-							onClick={HandleAddManually}
-						>
-							Add Manually
-						</DropdownMenuCheckboxItem>
-
-						<DropdownMenuCheckboxItem checked={csv} onCheckedChange={setCsv}>
-							Import CSV
-						</DropdownMenuCheckboxItem>
-					</DropdownMenuContent>
-				</DropdownMenu>
-			</div>
-			<div className="mr-2">
-			<SheetApiButton />
-			</div>
-			<div>
-				<Button
-					variant="outline"
-					className="border border-gray-300 bg-gray-100 font-light h-8 w-8"
-				>
-					<Popover>
-						<PopoverTrigger asChild>
-							<span>...</span>
-						</PopoverTrigger>
-						<PopoverContent>
-							{/* <IoIosLink />
-							Share Email */}
-							<Dialog>
-								<DialogTrigger asChild>
-									<div className="flex items-center cursor-pointer">
-										<IoIosLink className="mr-2" />
-										<span>Share link</span>
-									</div>
-								</DialogTrigger>
-								<DialogContent className="sm:max-w-md">
-									<DialogHeader>
-										<DialogTitle>Share link</DialogTitle>
-										<DialogDescription>
-											Anyone who has this link will be able to view this.
-										</DialogDescription>
-									</DialogHeader>
-									<div className="flex items-center space-x-2">
-										<div className="grid flex-1 gap-2">
-											<Label htmlFor="link" className="sr-only">
-												Link
-											</Label>
-											<Input
-												id="link"
-												defaultValue="https://ui.shadcn.com/docs/installation"
-												readOnly
-											/>
-										</div>
-										<Button type="submit" size="sm" className="px-3">
-											<span className="sr-only">Copy</span>
-											<Copy className="h-4 w-4" />
-										</Button>
-									</div>
-									<DialogFooter className="sm:justify-start">
-										<DialogClose asChild>
-											<Button type="button" variant="secondary">
-												Done
-											</Button>
-										</DialogClose>
-									</DialogFooter>
-								</DialogContent>
-							</Dialog>
-						</PopoverContent>
-					</Popover>
+				<Button onClick={HandleAddManually} className="font-light h-8 w-25">
+					<Plus className="mr-2 bg-slate-3 size-4" />
+					Add Contacts
 				</Button>
 			</div>
-			<Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+			<div className="mr-2">
+				<SheetApiButton />
+			</div>
+
+			<Dialog
+				open={isDialogAudienceOpen}
+				onOpenChange={setIsDialogAudienceOpen}
+			>
 				<DialogContent className="sm:max-w-[500px]">
 					<DialogHeader>
 						<DialogTitle>Add Contacts</DialogTitle>
