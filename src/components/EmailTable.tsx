@@ -51,6 +51,8 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 import { Badge } from "./ui/badge";
+import EmailButton from "./SheetApiButton";
+import SheetApiButton from "./SheetApiButton";
 
 const data: Payment[] = [
 	{
@@ -550,13 +552,7 @@ export function EmailTable() {
 			<div className="m-8 text-gray-600 ">
 				<div className="flex justify-between items-center m-9  ">
 					<h1 className="font-bold text-3xl">Emails</h1>
-					<Button
-						variant="outline"
-						className="border border-gray-300 bg-gray-100 font-light h-8 w-25"
-					>
-						<LiaCodeSolid className="mr-2 bg-slate-3 size-4" />
-						API
-					</Button>
+					<SheetApiButton  />
 				</div>
 
 				<div className="flex items-center py-1 space-x-2 mx-9 ">

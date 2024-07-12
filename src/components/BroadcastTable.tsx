@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import {
 	ColumnDef,
 	ColumnFiltersState,
@@ -35,6 +36,7 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
+import BroadcastButton from "./BroadcastButton";
 
 const data: Payment[] = [
 	
@@ -92,19 +94,42 @@ export const columns: ColumnDef<Payment>[] = [
 		accessorKey: "name",
 		header: ({ column }) => {
 			return (
-				<Button variant="ghost">
-					
+				<div
+					onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+				>
 					Name
-				</Button>
+				</div>
 			);
 		},
-		cell: ({ row }) => <div className="capitalize">{row.getValue("name")}</div>,
+
+		cell: ({ row }) => (
+			<div className="flex  items-center">
+				<Link
+					className="flex"
+					href={{
+						pathname: `/dashboard/broadcast/${row.original.id}`,
+						query: {
+							id: row.original.id,
+							name: row.original.name,
+							status: row.original.status,
+							created: row.original.created,
+						},
+					}}
+				>
+				
+					<span className=" flex mb-4 pt-2 capitalize cursor-pointer truncate border-b border-dashed border-slate-700 transition-colors duration-300 ease-in-out hover:border-blue-600">
+						{row.getValue("name")}
+					</span>
+				</Link>
+				
+			</div>
+		),
 	},
 	{
 		accessorKey: "status",
 		header: "Status",
 		cell: ({ row }) => (
-			<div className="capitalize">{row.getValue("status")}</div>
+			<div className="capitalize border bg-gray-50 border-gray-300 text-gray-400 text-[12px] px-2 w-12 rounded-sm ">{row.getValue("status")}</div>
 		),
 	},
 
@@ -177,65 +202,29 @@ export function BroadcastTable() {
 	return (
 		<div className="w-full">
 			<div className="flex justify-between items-center m-9  ">
-				<h1 className="font-bold text-3xl">Broadcast</h1>
-				<Button className="border h-9 w-21 font-medium">
-					<Plus className="mr-2 bg-slate-3 size-4" />
-					Create email
-				</Button>
+				<h1 className="font-bold text-3xl">Broadcasts</h1>
+				<BroadcastButton />
 			</div>
-			{/* <div className="flex items-center py-4">
-				<Input
-					placeholder="Filter emails..."
-					value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-					onChange={(event) =>
-						table.getColumn("email")?.setFilterValue(event.target.value)
-					}
-					className="max-w-sm"
-				/>
-				<DropdownMenu>
-					<DropdownMenuTrigger asChild>
-						<Button variant="outline" className="ml-auto">
-							Columns <ChevronDown className="ml-2 h-4 w-4" />
-						</Button>
-					</DropdownMenuTrigger>
-					<DropdownMenuContent align="end">
-						{table
-							.getAllColumns()
-							.filter((column) => column.getCanHide())
-							.map((column) => {
-								return (
-									<DropdownMenuCheckboxItem
-										key={column.id}
-										className="capitalize"
-										checked={column.getIsVisible()}
-										onCheckedChange={(value) =>
-											column.toggleVisibility(!!value)
-										}
-									>
-										{column.id}
-									</DropdownMenuCheckboxItem>
-								);
-							})}
-					</DropdownMenuContent>
-				</DropdownMenu>
-			</div> */}
-			<div className="rounded-lg ">
-				<Table className="h-7">
-					<TableHeader className="rounded-lg border">
+
+			<div className="mt-4 mx-10">
+				<Table className="min-w-full border-spacing-0 text-gray-600 text-left">
+					{/* min-w-full border-separate border-spacing-0  text-left */}
+					<TableHeader className="header border rounded-xl border-slate-600 bg-gray-100 font-light justify-between">
 						{table.getHeaderGroups().map((headerGroup) => (
 							<TableRow key={headerGroup.id}>
-								{headerGroup.headers.map((header) => {
-									return (
-										<TableHead key={header.id}>
-											{header.isPlaceholder
-												? null
-												: flexRender(
-														header.column.columnDef.header,
-														header.getContext()
-												  )}
-										</TableHead>
-									);
-								})}
+								{headerGroup.headers.map((header) => (
+									<TableHead
+										key={header.id}
+										className="h-9 border-b border-t border-slate-6 px-3 text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100"
+									>
+										{header.isPlaceholder
+											? null
+											: flexRender(
+													header.column.columnDef.header,
+													header.getContext()
+											  )}
+									</TableHead>
+								))}
 							</TableRow>
 						))}
 					</TableHeader>
@@ -245,7 +234,6 @@ export function BroadcastTable() {
 								<TableRow
 									key={row.id}
 									data-state={row.getIsSelected() && "selected"}
-									className=""
 								>
 									{row.getVisibleCells().map((cell) => (
 										<TableCell key={cell.id}>
@@ -259,7 +247,10 @@ export function BroadcastTable() {
 							))
 						) : (
 							<TableRow>
-								<TableCell colSpan={columns.length} className=" text-center">
+								<TableCell
+									colSpan={columns.length}
+									className="h-24 text-center"
+								>
 									No results.
 								</TableCell>
 							</TableRow>
@@ -291,7 +282,6 @@ export function BroadcastTable() {
 					</Button>
 				</div>
 			</div>
-			
 		</div>
 	);
 }

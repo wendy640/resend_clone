@@ -24,6 +24,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import MailTab from "./MailTab";
+import SheetApiButton from "./SheetApiButton";
 // Define the type for mail details
 type MailDetails = {
 	id: string;
@@ -322,13 +323,7 @@ const getStatusClasses = (status: any) => {
 				</div>
 				<div className="button flex mt-8 mr-5">
 					<div className="mr-2">
-						<Button
-							variant="outline"
-							className="border border-gray-300 bg-gray-100 font-light h-8 w-25"
-						>
-							<LiaCodeSolid className="mr-2 bg-slate-3 size-4" />
-							API
-						</Button>
+						<SheetApiButton />
 					</div>
 					<div>
 						<Button

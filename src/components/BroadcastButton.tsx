@@ -3,6 +3,11 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { LiaCodeSolid } from "react-icons/lia";
 
+import {
+	Popover,
+	PopoverContent,
+	PopoverTrigger,
+} from "@/components/ui/popover";
 import { IoIosLink } from "react-icons/io";
 import { Copy, Plus } from "lucide-react";
 import {
@@ -19,43 +24,37 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
-import SheetApiButton from "./SheetApiButton";
 
-const DomainButton = () => {
+const BroadcastButton = () => {
 	type Checked = DropdownMenuCheckboxItemProps["checked"];
 
 	const [addManually, setAddManually] = React.useState<Checked>(true);
-	const [csv, setCsv] = React.useState<Checked>(false);
-	const [isDialogDomainOpen, setIsDialogDomainOpen] = useState(false);
 
-	const HandleAddDomain = () => {
-		setIsDialogDomainOpen(true);
+	const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+	const HandleAddManually = () => {
+		setIsDialogOpen(true);
 	};
 
 	return (
 		<div className="button flex mt-8 mr-3">
 			<div className="mr-2">
-				<Button
-							className="font-light h-8 w-25 "
-							onClick={HandleAddDomain}
-						>
-							<Plus className="mr-2 bg-slate-3 size-4" />
-							Add Contacts
-						</Button>
+				<Button onClick={HandleAddManually} className="font-light h-8 w-25">
+					<Plus className="mr-2 bg-slate-3 size-4" />
+					Create email
+				</Button>
 			</div>
-			<div className="mr-2">
-				<SheetApiButton />
-			</div>
-
-			<Dialog open={isDialogDomainOpen} onOpenChange={setIsDialogDomainOpen}>
+		
+			
+			<Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
 				<DialogContent className="sm:max-w-[500px]">
 					<DialogHeader>
-						<DialogTitle>Add Domain</DialogTitle>
+						<DialogTitle>Create Email</DialogTitle>
 					</DialogHeader>
 					<div className="gap-4 py-4">
 						<div className="grid-cols-4 items-center gap-4 text-gray-500">
 							<Label htmlFor="emails" className="text-right text-sm">
-								Add Domain
+								Email addresses
 							</Label>
 							<textarea
 								id="emails"
@@ -85,4 +84,4 @@ const DomainButton = () => {
 	);
 };
 
-export default DomainButton;
+export default BroadcastButton;

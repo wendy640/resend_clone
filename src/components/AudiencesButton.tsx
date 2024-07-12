@@ -29,6 +29,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
+import SheetApiButton from "./SheetApiButton";
 
 const AudiencesButton = () => {
 	type Checked = DropdownMenuCheckboxItemProps["checked"];
@@ -67,13 +68,7 @@ const AudiencesButton = () => {
 				</DropdownMenu>
 			</div>
 			<div className="mr-2">
-				<Button
-					variant="outline"
-					className="border border-gray-300 bg-gray-100 font-light h-8 w-25"
-				>
-					<LiaCodeSolid className="mr-2 bg-slate-3 size-4" />
-					API
-				</Button>
+			<SheetApiButton />
 			</div>
 			<div>
 				<Button
