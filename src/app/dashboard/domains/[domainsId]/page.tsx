@@ -2,7 +2,7 @@ import React from 'react'
 
 const DomainsDetails = () => {
   return (
-    <div>
+    <div className='m-6'>
       hello
     </div>
   )

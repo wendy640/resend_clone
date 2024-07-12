@@ -395,7 +395,7 @@ export const columns: ColumnDef<Payment>[] = [
 									: row.getValue("status") === "bounced"
 									? "text-[#f87171]"
 									: "text-[#3175e4]"
-							} relative w-5 h-5`}
+							} relative w-4 h-4`}
 							fill="currentColor"
 							fill-opacity="0.9"
 							filter="brightness(0.6)"

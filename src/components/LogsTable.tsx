@@ -25,6 +25,7 @@ import {
 	ArrowUpDown,
 	ChevronDown,
 	CodeXml,
+	GalleryVertical,
 	Mail,
 	MoreHorizontal,
 } from "lucide-react";
@@ -55,130 +56,98 @@ import { Badge } from "./ui/badge";
 
 const data: Payment[] = [
 	{
-		id: "bhqecj0p",
-		to: "nwaonu123@gmail.com",
-		status: "bounced",
-		subject: "Little Debit Notification",
-		sent: "less than a minute ago",
-		name: "Nwaonu Micheal",
-	},
-	{
-		id: "bhqecj3p",
-		to: "chinwe640@gmail.com",
-		status: "opened",
-		subject: "Little Debit Notification",
-		sent: "1 minute ago",
-		name: "Chinwe Enyidiegwu",
-	},
-	{
-		id: "bhqecj3p",
-		to: "rita@gmail.com",
-		status: "delivered",
-		subject: "Little Debit Notification",
-		sent: "1 minute ago",
-		name: "Rita EBona",
-	},
-	{
 		id: "bhqecj35",
-		to: "cmedabl@gmail.com",
-		status: "opened",
-		subject: "Little Debit Notification",
-		sent: "1 minute ago",
-		name: "Chidozie Medabola",
+		endpoint: "/emails",
+		status: "200",
+		method: "POST",
+		created: "1 minute ago",
 	},
 	{
 		id: "bhqecj36",
-		to: "chi@gmail.com",
-		status: "bounced",
-		subject: "Little Debit Notification",
-		sent: "1 minute ago",
-		name: "Chidi Onwa",
+		endpoint: "/emails",
+		status: "200",
+		method: "POST",
+		created: "1 minute ago",
 	},
 	{
 		id: "bhqecj38",
-		to: "musa0@gmail.com",
-		status: "delivered",
-		subject: "Little Debit Notification",
-		sent: "1 minute ago",
-		name: "Musa Garuba",
+		endpoint: "/emails",
+		status: "200",
+		method: "POST",
+		created: "1 minute ago",
 	},
 	{
 		id: "bhqecj2p",
-		to: "nwaonu123@gmail.com",
-		status: "bounced",
-		subject: "Little Debit Notification",
-		sent: "3 minute ago",
-		name: "Nwaonu Micheal",
+		endpoint: "/emails",
+		status: "200",
+		method: "POST" ,
+		created: "3 minute ago",
 	},
 	{
 		id: "bhqecj1p",
-		to: "nwaonu123@gmail.com",
-		status: "delivered",
-		subject: "Little Debit Notification",
-		sent: "6 minute ago",
-		name: "Nwaonu Micheal",
+		endpoint: "/emails",
+		status: "200",
+		method: "POST",
+		created: "6 minute ago",
 	},
 	{
 		id: "bhqecj9p",
-		to: "nwaonu123@gmail.com",
-		status: "bounced",
-		subject: "Little Debit Notification",
-		sent: "1 minute ago",
-		name: "Nwaonu Micheal",
+		endpoint: "/emails",
+		status: "200",
+		method: "POST" ,
+		created: "1 minute ago",
 	},
 	{
 		id: "bhqecj8p",
-		to: "nwaonu123@gmail.com",
-		status: "delivered",
-		subject: "Little Debit Notification",
-		sent: "1 minute ago",
-		name: "Nwaonu Micheal",
+		endpoint: "/emails",
+		status: "200",
+		method: "POST" ,
+		created: "1 minute ago",
 	},
 ];
 
 export type Payment = {
 	id: string;
-	to: string;
-	status: "bounced" | "delivered" | "opened";
-	subject: string;
-	sent: string;
-	name: string;
+	endpoint: string;
+	status: "200" | "402" | "500";
+	method: "POST" | "GET" | "UPDATE";
+	created: string;
+	
 };
 
 export const columns: ColumnDef<Payment>[] = [
 	{
-		accessorKey: "to",
+		accessorKey: "endpoint",
 		header: ({ column }) => {
 			return (
 				<div
 					onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
 				>
-					To
+					Endpoint
 				</div>
 			);
 		},
 
 		cell: ({ row }) => (
-			<div className="flex  items-center">
+			<div className="flex  items-center mr-3">
 				<Link
 					className="flex"
 					href={{
 						pathname: `/dashboard/logs/${row.original.id}`,
 						query: {
 							id: row.original.id,
-							to: row.original.to,
+							endpoint: row.original.endpoint,
 							status: row.original.status,
-							subject: row.original.subject,
-							sent: row.original.sent,
-							name: row.original.name,
+							method: row.original.method,
+							created: row.original.created,
 						},
 					}}
 				>
 					<div
 						className={`relative mr-2 w-8 h-8 flex items-center justify-center ${
-							row.getValue("status") === "delivered"
+							row.getValue("status") === "200"
 								? "bg-emerald-50"
-								: row.getValue("status") === "bounced"
+								: row.getValue("status") === "402"
 								? "bg-red-100"
 								: "bg-sky-100"
 						}`}
@@ -389,24 +358,18 @@ export const columns: ColumnDef<Payment>[] = [
 								</linearGradient>
 							</defs>
 						</svg>
-						<svg
+						<GalleryVertical
 							className={`${
-								row.getValue("status") === "delivered"
-									? "text-green-11"
-									: row.getValue("status") === "bounced"
-									? "text-[#f87171]"
-									: "text-[#3175e4]"
-							} relative w-5 h-5`}
-							fill="currentColor"
-							fill-opacity="0.9"
-							filter="brightness(0.6)"
-							viewBox="0 0 32 32"
-						>
-							<path d="m31 5.109-.004-.06-.004-.053-.008-.054-.01-.056-.013-.049-.016-.057-.018-.048-.02-.054-.024-.05-.024-.047-.03-.05-.028-.043c-.01-.015-.022-.03-.034-.045-.01-.015-.022-.03-.034-.044l-.035-.038a1.113 1.113 0 0 0-.042-.044l-.012-.013-.025-.02a1.142 1.142 0 0 0-.281-.183 1.133 1.133 0 0 0-.432-.1L29.873 4H2.127l-.032.002a1.125 1.125 0 0 0-.483.123 1.133 1.133 0 0 0-.23.158l-.025.021-.013.013c-.015.014-.028.03-.042.044l-.035.038-.034.044-.034.045-.028.044-.03.05-.024.046-.024.05-.02.054-.018.048-.016.057c-.004.016-.01.033-.013.049l-.01.056-.008.054-.004.052-.003.06L1 5.128v21.746C1 27.496 1.504 28 2.127 28h27.746c.623 0 1.127-.504 1.127-1.127V5.11Zm-3.726 1.144-8.832 9.43A3.316 3.316 0 0 1 16 16.749a3.316 3.316 0 0 1-2.442-1.064l-8.832-9.43h22.549ZM3.255 25.747V7.977l8.66 9.247A5.547 5.547 0 0 0 16 19.001a5.548 5.548 0 0 0 4.087-1.777l8.66-9.246v17.769H3.253Z"></path>
-						</svg>
+								row.getValue("status") === "200"
+									? "stroke-[#166534]	"
+									: row.getValue("status") === "402"
+									? "stroke-[#f6a0a0]"
+									: "stroke-[#3175e4]"
+							} relative w-4 h-4 `}
+						/>
 					</div>
-					<span className=" flex mb-4 pt-2 lowercase cursor-pointer truncate border-b border-dashed border-slate-700 transition-colors duration-300 ease-in-out hover:border-blue-600">
-						{row.getValue("to")}
+					<span className=" flex mb-4 pr-3 pt-2 mr-4 lowercase cursor-pointer truncate border-b border-dashed border-slate-700 transition-colors duration-300 ease-in-out hover:border-blue-600">
+						{row.getValue("endpoint")}
 					</span>
 				</Link>
 				{/* <div className=" lowercase cursor-pointer border-b border-dashed border-slate-900 transition-colors duration-300 ease-in-out hover:border-blue-900">
@@ -422,27 +385,27 @@ export const columns: ColumnDef<Payment>[] = [
 		cell: ({ row }) => {
 			const status = row.getValue("status");
 			const variant =
-				status === "delivered"
+				status === "200"
 					? "default"
-					: status === "bounced"
+					: status === "402"
 					? "destructive"
 					: "secondary";
 			const bgColor =
-				status === "delivered"
+				status === "200"
 					? "bg-green-100"
-					: status === "bounced"
+					: status === "402"
 					? "bg-red-100"
 					: "bg-sky-100";
 			const textColor =
-				status === "delivered"
+				status === "200"
 					? "text-[#1c6537]"
-					: status === "bounced"
+					: status === "402"
 					? "text-[#b94646]"
 					: "text-[#2b70de]";
 
 			return (
 				<div
-					className={` items-center justify-center capitalize font-medium tracking-wide border-none   border inline-flex select-none  whitespace-nowrap  rounded text-xs h-6 px-2 ${bgColor} ${textColor}`}
+					className={` items-center mr-5 justify-center capitalize font-medium tracking-wide border-none   border inline-flex select-none  whitespace-nowrap  rounded text-xs h-6 px-2 ${bgColor} ${textColor}`}
 				>
 					{row.getValue("status")}
 					{/* <button data-state="closed">
@@ -456,21 +419,21 @@ export const columns: ColumnDef<Payment>[] = [
 	},
 
 	{
-		accessorKey: "subject",
-		header: "Subject",
+		accessorKey: "method",
+		header: "Method",
 		cell: ({ row }) => (
-			<div className="capitalize">{row.getValue("subject")}</div>
+			<div className="capitalize mr-3">{row.getValue("method")}</div>
 		),
 	},
 
 	{
-		accessorKey: "sent",
-		header: "Sent",
+		accessorKey: "created",
+		header: "Created",
 		cell: ({ row }) => (
 			<TooltipProvider>
 				<Tooltip>
 					<TooltipTrigger asChild>
-						<div className="capitalize">{row.getValue("sent")}</div>
+						<div className=" capitalize  ">{row.getValue("created")}</div>
 					</TooltipTrigger>
 					<TooltipContent>
 						<p>July 04,2024 - 01:55:59 PM</p>
@@ -478,35 +441,6 @@ export const columns: ColumnDef<Payment>[] = [
 				</Tooltip>
 			</TooltipProvider>
 		),
-	},
-	{
-		id: "actions",
-		enableHiding: false,
-		cell: ({ row }) => {
-			const payment = row.original;
-
-			return (
-				<DropdownMenu>
-					<DropdownMenuTrigger asChild>
-						<Button variant="ghost" className="h-8 w-8 p-0">
-							<span className="sr-only">Open menu</span>
-							<MoreHorizontal className="h-4 w-4" />
-						</Button>
-					</DropdownMenuTrigger>
-					<DropdownMenuContent align="end">
-						<DropdownMenuLabel>Actions</DropdownMenuLabel>
-						<DropdownMenuItem
-							onClick={() => navigator.clipboard.writeText(payment.id)}
-						>
-							Copy payment ID
-						</DropdownMenuItem>
-						<DropdownMenuSeparator />
-						<DropdownMenuItem>View customer</DropdownMenuItem>
-						<DropdownMenuItem>View payment details</DropdownMenuItem>
-					</DropdownMenuContent>
-				</DropdownMenu>
-			);
-		},
 	},
 ];
 
@@ -549,30 +483,52 @@ export function LogsTable() {
 	return (
 		<div className="m-8 text-gray-600 ">
 			<div className="flex justify-between items-center m-9  ">
-				<h1 className="font-bold text-3xl">Emails</h1>
-				<Button
-					variant="outline"
-					className="border border-gray-300 bg-gray-100 font-light h-8 w-25"
-				>
-					<LiaCodeSolid className="mr-2 bg-slate-3 size-4" />
-					API
-				</Button>
+				<h1 className="font-bold text-3xl">Logs</h1>
 			</div>
 
 			<div className="flex items-center py-1 space-x-2 mx-9 ">
-				<div className="relative flex-grow max-w-[50%]">
-					<CiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-					<Input
-						placeholder="Search..."
-						value={(table.getColumn("to")?.getFilterValue() as string) ?? ""}
-						className="pl-10 border border-gray-300 bg-gray-100 font-light h-9 w-full"
-					/>
-				</div>
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="outline"
-							className="flex-grow max-w-[15.5%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
+							className="flex-grow max-w-[25%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
+						>
+							All Statuses <ChevronDown className="h-4 w-4" />
+						</Button>
+					</DropdownMenuTrigger>
+					<DropdownMenuContent className="w-56">
+						<DropdownMenuCheckboxItem
+							checked={show3days}
+							onCheckedChange={setShow3days}
+						>
+							Last 3 days
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={show7days}
+							onCheckedChange={setShow7days}
+						>
+							Last 7 days
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={show15days}
+							onCheckedChange={setShow15days}
+						>
+							Last 15 days
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={show30days}
+							onCheckedChange={setShow30days}
+						>
+							Last 30 days
+						</DropdownMenuCheckboxItem>
+					</DropdownMenuContent>
+				</DropdownMenu>
+
+				<DropdownMenu>
+					<DropdownMenuTrigger asChild>
+						<Button
+							variant="outline"
+							className="flex-grow max-w-[25%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
 						>
 							Last 3 days <ChevronDown className="h-4 w-4" />
 						</Button>
@@ -609,9 +565,10 @@ export function LogsTable() {
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="outline"
-							className="flex-grow max-w-[15.5%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
+							className="flex-grow max-w-[25%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
 						>
-							All Statuses <ChevronDown className="h-4 w-4" />
+							All User Agents
+							<ChevronDown className="h-4 w-4" />
 						</Button>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent className="w-56">
@@ -664,7 +621,7 @@ export function LogsTable() {
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="outline"
-							className="flex-grow max-w-[16%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
+							className="flex-grow max-w-[25%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
 						>
 							All API Keys <ChevronDown className="h-4 w-4" />
 						</Button>
@@ -717,15 +674,15 @@ export function LogsTable() {
 			</div>
 
 			<div className="mt-4 mx-10">
-				<Table className="min-w-full border-spacing-0  text-left">
+				<Table className="min-w-full border-spacing-3  text-left">
 					{/* min-w-full border-separate border-spacing-0  text-left */}
-					<TableHeader className="header border rounded-xl border-slate-600 bg-gray-100 font-light justify-between">
+					<TableHeader className="header border rounded-xl  border-slate-600 bg-gray-100 font-light justify-between ">
 						{table.getHeaderGroups().map((headerGroup) => (
-							<TableRow key={headerGroup.id}>
+							<TableRow key={headerGroup.id} className="">
 								{headerGroup.headers.map((header) => (
 									<TableHead
 										key={header.id}
-										className="h-9 border-b border-t border-slate-6 px-3 text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100"
+										className="h-9 border-b border-t  text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100 "
 									>
 										{header.isPlaceholder
 											? null

@@ -343,29 +343,14 @@ export const columns: ColumnDef<Payment>[] = [
 								</linearGradient>
 							</defs>
 						</svg>
-						{/* <svg
-							className={`${
-								row.getValue("status") === "verified"
-									? "text-green-11"
-									: row.getValue("status") === "pending"
-									? "text-[#f87171]"
-									: "text-[#3175e4]"
-							} relative w-5 h-5`}
-							fill="currentColor"
-							fill-opacity="0.9"
-							filter="brightness(0.6)"
-							viewBox="0 0 32 32"
-						>
-							<path d="m31 5.109-.004-.06-.004-.053-.008-.054-.01-.056-.013-.049-.016-.057-.018-.048-.02-.054-.024-.05-.024-.047-.03-.05-.028-.043c-.01-.015-.022-.03-.034-.045-.01-.015-.022-.03-.034-.044l-.035-.038a1.113 1.113 0 0 0-.042-.044l-.012-.013-.025-.02a1.142 1.142 0 0 0-.281-.183 1.133 1.133 0 0 0-.432-.1L29.873 4H2.127l-.032.002a1.125 1.125 0 0 0-.483.123 1.133 1.133 0 0 0-.23.158l-.025.021-.013.013c-.015.014-.028.03-.042.044l-.035.038-.034.044-.034.045-.028.044-.03.05-.024.046-.024.05-.02.054-.018.048-.016.057c-.004.016-.01.033-.013.049l-.01.056-.008.054-.004.052-.003.06L1 5.128v21.746C1 27.496 1.504 28 2.127 28h27.746c.623 0 1.127-.504 1.127-1.127V5.11Zm-3.726 1.144-8.832 9.43A3.316 3.316 0 0 1 16 16.749a3.316 3.316 0 0 1-2.442-1.064l-8.832-9.43h22.549ZM3.255 25.747V7.977l8.66 9.247A5.547 5.547 0 0 0 16 19.001a5.548 5.548 0 0 0 4.087-1.777l8.66-9.246v17.769H3.253Z"></path>
-						</svg> */}
 						<Globe
 							className={`${
 								row.getValue("status") === "verified"
-									? "fill-emerald-100"
+									? "stroke-[#166534]	"
 									: row.getValue("status") === "pending"
-									? "fill-[#f6a0a0]"
-									: "fill-[#3175e4]"
-							} relative w-5 h-5`}
+									? "stroke-[#d95d5d]"
+									: "stroke-[#3175e4]"
+							} relative w-5 h-5 `}
 						/>
 					</div>
 					<span className=" flex mb-4 pt-2 lowercase cursor-pointer truncate border-b border-dashed border-slate-700 transition-colors duration-300 ease-in-out hover:border-blue-600">
@@ -419,21 +404,27 @@ export const columns: ColumnDef<Payment>[] = [
 	},
 
 	{
-  accessorKey: "region",
-  header: "Region",
-  cell: ({ row }) => {
-    const region = row.getValue("region") as Region; // Cast region to the Region type
-    const flagSrc = regionFlagMap[region] || ""; // Fallback to a default flag if region not found
-    const cardinal = pole[region] || "";
-    return (
-      <div className="flex items-center capitalize">
-        <Image src={flagSrc} alt={`${region} flag`} width={20} height={20} className="w-5 h-5 mr-2" />
-        {region}
-        <span className="lowercase text-gray-500 ml-2">{cardinal}</span>
-      </div>
-    );
-  },
-},
+		accessorKey: "region",
+		header: "Region",
+		cell: ({ row }) => {
+			const region = row.getValue("region") as Region; // Cast region to the Region type
+			const flagSrc = regionFlagMap[region] || ""; // Fallback to a default flag if region not found
+			const cardinal = pole[region] || "";
+			return (
+				<div className="flex items-center capitalize">
+					<Image
+						src={flagSrc}
+						alt={`${region} flag`}
+						width={20}
+						height={20}
+						className="w-5 h-5 mr-2"
+					/>
+					{region}
+					<span className="lowercase text-gray-500 ml-2">{cardinal}</span>
+				</div>
+			);
+		},
+	},
 
 	{
 		id: "actions",
