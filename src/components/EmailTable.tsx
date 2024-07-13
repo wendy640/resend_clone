@@ -58,7 +58,7 @@ const data: Payment[] = [
 	{
 		id: "bhqecj0p",
 		to: "nwaonu123@gmail.com",
-		status: "bounced",
+		status: "delivered",
 		subject: "Little Debit Notification",
 		sent: "less than a minute ago",
 		name: "Nwaonu Micheal",
@@ -82,7 +82,7 @@ const data: Payment[] = [
 	{
 		id: "bhqecj35",
 		to: "cmedabl@gmail.com",
-		status: "opened",
+		status: "bounced",
 		subject: "Little Debit Notification",
 		sent: "1 minute ago",
 		name: "Chidozie Medabola",
@@ -90,7 +90,7 @@ const data: Payment[] = [
 	{
 		id: "bhqecj36",
 		to: "chi@gmail.com",
-		status: "bounced",
+		status: "delivered",
 		subject: "Little Debit Notification",
 		sent: "1 minute ago",
 		name: "Chidi Onwa",
@@ -106,7 +106,7 @@ const data: Payment[] = [
 	{
 		id: "bhqecj2p",
 		to: "nwaonu123@gmail.com",
-		status: "bounced",
+		status: "delivered",
 		subject: "Little Debit Notification",
 		sent: "3 minute ago",
 		name: "Nwaonu Micheal",
@@ -122,7 +122,7 @@ const data: Payment[] = [
 	{
 		id: "bhqecj9p",
 		to: "nwaonu123@gmail.com",
-		status: "bounced",
+		status: "delivered",
 		subject: "Little Debit Notification",
 		sent: "1 minute ago",
 		name: "Nwaonu Micheal",
