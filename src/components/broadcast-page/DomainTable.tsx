@@ -14,15 +14,9 @@ import {
 	getSortedRowModel,
 	useReactTable,
 } from "@tanstack/react-table";
-import {
-	
-	Globe,
-	Mail,
-	MoreHorizontal,
-} from "lucide-react";
+import { Globe, Mail, MoreHorizontal } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-
 
 import {
 	DropdownMenu,
@@ -43,10 +37,10 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 
-import DomainButton from "./DomainButton";
+import DomainButton from "../domain_page/DomainButton";
 import Image from "next/image";
 
-type Region = 'tokyo' | 'ireland'; // Add all possible region keys here
+type Region = "tokyo" | "ireland"; // Add all possible region keys here
 const regionFlagMap: Record<Region, string> = {
 	tokyo: "/images/circle.png",
 	ireland: "/images/ireland.png",
@@ -83,14 +77,12 @@ const data: Payment[] = [
 		domain: "musa0@gmail.com",
 		status: "verified",
 		region: "ireland",
-		
 	},
 	{
 		id: "bhqecj2p",
 		domain: "nwaonu123@gmail.com",
 		status: "pending",
-	region: "tokyo",
-		
+		region: "tokyo",
 	},
 ];
 
@@ -458,7 +450,6 @@ export const columns: ColumnDef<Payment>[] = [
 ];
 
 export function DomainTable() {
-		
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
 		[]

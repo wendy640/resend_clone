@@ -20,16 +20,10 @@ import {
 	getSortedRowModel,
 	useReactTable,
 } from "@tanstack/react-table";
-import {
-	ArrowUpDown,
-	ChevronDown,
-	CodeXml,
-	Mail,
-	MoreHorizontal,
-} from "lucide-react";
-import { LiaCodeSolid } from "react-icons/lia";
+import { ChevronDown, MoreHorizontal } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+
 import { CiSearch } from "react-icons/ci";
 
 import {
@@ -50,8 +44,7 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
-import { Badge } from "./ui/badge";
-import EmailButton from "./SheetApiButton";
+
 import SheetApiButton from "./SheetApiButton";
 
 const data: Payment[] = [
@@ -463,7 +456,7 @@ export const columns: ColumnDef<Payment>[] = [
 			<div className="capitalize">{row.getValue("subject")}</div>
 		),
 	},
-	
+
 	{
 		accessorKey: "sent",
 		header: "Sent",
@@ -512,7 +505,6 @@ export const columns: ColumnDef<Payment>[] = [
 ];
 
 export function EmailTable() {
-
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
 		[]
@@ -545,252 +537,250 @@ export function EmailTable() {
 	const [show7days, setShow7days] = React.useState<Checked>(false);
 	const [show15days, setShow15days] = React.useState<Checked>(false);
 	const [show30days, setShow30days] = React.useState<Checked>(false);
- const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true);
- const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false);
- const [showPanel, setShowPanel] = React.useState<Checked>(false);
-		return (
-			<div className="m-8 text-gray-600 ">
-				<div className="flex justify-between items-center m-9  ">
-					<h1 className="font-bold text-3xl">Emails</h1>
-					<SheetApiButton  />
+	const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true);
+	const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false);
+	const [showPanel, setShowPanel] = React.useState<Checked>(false);
+	return (
+		<div className="m-8 text-gray-600 ">
+			<div className="flex justify-between items-center m-9  ">
+				<h1 className="font-bold text-3xl">Emails</h1>
+				<SheetApiButton />
+			</div>
+
+			<div className="flex items-center py-1 space-x-2 mx-9 ">
+				<div className="relative flex-grow max-w-[50%]">
+					<CiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+					<Input
+						placeholder="Search..."
+						value={(table.getColumn("to")?.getFilterValue() as string) ?? ""}
+						className="pl-10 border border-gray-300 bg-gray-100 font-light h-9 w-full"
+					/>
 				</div>
+				<DropdownMenu>
+					<DropdownMenuTrigger asChild>
+						<Button
+							variant="outline"
+							className="flex-grow max-w-[15.5%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
+						>
+							Last 3 days <ChevronDown className="h-4 w-4" />
+						</Button>
+					</DropdownMenuTrigger>
+					<DropdownMenuContent className="w-56">
+						<DropdownMenuCheckboxItem
+							checked={show3days}
+							onCheckedChange={setShow3days}
+						>
+							Last 3 days
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={show7days}
+							onCheckedChange={setShow7days}
+						>
+							Last 7 days
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={show15days}
+							onCheckedChange={setShow15days}
+						>
+							Last 15 days
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={show30days}
+							onCheckedChange={setShow30days}
+						>
+							Last 30 days
+						</DropdownMenuCheckboxItem>
+					</DropdownMenuContent>
+				</DropdownMenu>
 
-				<div className="flex items-center py-1 space-x-2 mx-9 ">
-					<div className="relative flex-grow max-w-[50%]">
-						<CiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-						<Input
-							placeholder="Search..."
-							value={(table.getColumn("to")?.getFilterValue() as string) ?? ""}
-							className="pl-10 border border-gray-300 bg-gray-100 font-light h-9 w-full"
-						/>
-					</div>
-					<DropdownMenu>
-						<DropdownMenuTrigger asChild>
-							<Button
-								variant="outline"
-								className="flex-grow max-w-[15.5%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
-							>
-								Last 3 days <ChevronDown className="h-4 w-4" />
-							</Button>
-						</DropdownMenuTrigger>
-						<DropdownMenuContent className="w-56">
-							<DropdownMenuCheckboxItem
-								checked={show3days}
-								onCheckedChange={setShow3days}
-							>
-								Last 3 days
-							</DropdownMenuCheckboxItem>
-							<DropdownMenuCheckboxItem
-								checked={show7days}
-								onCheckedChange={setShow7days}
-							>
-								Last 7 days
-							</DropdownMenuCheckboxItem>
-							<DropdownMenuCheckboxItem
-								checked={show15days}
-								onCheckedChange={setShow15days}
-							>
-								Last 15 days
-							</DropdownMenuCheckboxItem>
-							<DropdownMenuCheckboxItem
-								checked={show30days}
-								onCheckedChange={setShow30days}
-							>
-								Last 30 days
-							</DropdownMenuCheckboxItem>
-						</DropdownMenuContent>
-					</DropdownMenu>
+				<DropdownMenu>
+					<DropdownMenuTrigger asChild>
+						<Button
+							variant="outline"
+							className="flex-grow max-w-[15.5%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
+						>
+							All Statuses <ChevronDown className="h-4 w-4" />
+						</Button>
+					</DropdownMenuTrigger>
+					<DropdownMenuContent className="w-56">
+						<DropdownMenuCheckboxItem
+							checked={showStatusBar}
+							onCheckedChange={setShowStatusBar}
+						>
+							Sent
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={showActivityBar}
+							onCheckedChange={setShowActivityBar}
+						>
+							Delivered
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={showPanel}
+							onCheckedChange={setShowPanel}
+						>
+							Delivered Delayed
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={showActivityBar}
+							onCheckedChange={setShowActivityBar}
+						>
+							Complained
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={showActivityBar}
+							onCheckedChange={setShowActivityBar}
+						>
+							Bounced
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={showActivityBar}
+							onCheckedChange={setShowActivityBar}
+						>
+							Clicked
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={showActivityBar}
+							onCheckedChange={setShowActivityBar}
+						>
+							Opened
+						</DropdownMenuCheckboxItem>
+					</DropdownMenuContent>
+				</DropdownMenu>
 
-					<DropdownMenu>
-						<DropdownMenuTrigger asChild>
-							<Button
-								variant="outline"
-								className="flex-grow max-w-[15.5%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
-							>
-								All Statuses <ChevronDown className="h-4 w-4" />
-							</Button>
-						</DropdownMenuTrigger>
-						<DropdownMenuContent className="w-56">
-							<DropdownMenuCheckboxItem
-								checked={showStatusBar}
-								onCheckedChange={setShowStatusBar}
-							>
-								Sent
-							</DropdownMenuCheckboxItem>
-							<DropdownMenuCheckboxItem
-								checked={showActivityBar}
-								onCheckedChange={setShowActivityBar}
-							>
-								Delivered
-							</DropdownMenuCheckboxItem>
-							<DropdownMenuCheckboxItem
-								checked={showPanel}
-								onCheckedChange={setShowPanel}
-							>
-								Delivered Delayed
-							</DropdownMenuCheckboxItem>
-							<DropdownMenuCheckboxItem
-								checked={showActivityBar}
-								onCheckedChange={setShowActivityBar}
-							>
-								Complained
-							</DropdownMenuCheckboxItem>
-							<DropdownMenuCheckboxItem
-								checked={showActivityBar}
-								onCheckedChange={setShowActivityBar}
-							>
-								Bounced
-							</DropdownMenuCheckboxItem>
-							<DropdownMenuCheckboxItem
-								checked={showActivityBar}
-								onCheckedChange={setShowActivityBar}
-							>
-								Clicked
-							</DropdownMenuCheckboxItem>
-							<DropdownMenuCheckboxItem
-								checked={showActivityBar}
-								onCheckedChange={setShowActivityBar}
-							>
-								Opened
-							</DropdownMenuCheckboxItem>
-						</DropdownMenuContent>
-					</DropdownMenu>
+				<DropdownMenu>
+					<DropdownMenuTrigger asChild>
+						<Button
+							variant="outline"
+							className="flex-grow max-w-[16%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
+						>
+							All API Keys <ChevronDown className="h-4 w-4" />
+						</Button>
+					</DropdownMenuTrigger>
+					<DropdownMenuContent className="w-56">
+						<DropdownMenuCheckboxItem
+							checked={showStatusBar}
+							onCheckedChange={setShowStatusBar}
+						>
+							All API Keys
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={showActivityBar}
+							onCheckedChange={setShowActivityBar}
+						>
+							Get Payed Metabase
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={showPanel}
+							onCheckedChange={setShowPanel}
+						>
+							SchoolablesandboxKYC
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={showPanel}
+							onCheckedChange={setShowPanel}
+						>
+							PayedHQ OTP
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={showPanel}
+							onCheckedChange={setShowPanel}
+						>
+							Getpayed app
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={showPanel}
+							onCheckedChange={setShowPanel}
+						>
+							cone
+						</DropdownMenuCheckboxItem>
+						<DropdownMenuCheckboxItem
+							checked={showPanel}
+							onCheckedChange={setShowPanel}
+						>
+							id bank
+						</DropdownMenuCheckboxItem>
+					</DropdownMenuContent>
+				</DropdownMenu>
+			</div>
 
-					<DropdownMenu>
-						<DropdownMenuTrigger asChild>
-							<Button
-								variant="outline"
-								className="flex-grow max-w-[16%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
-							>
-								All API Keys <ChevronDown className="h-4 w-4" />
-							</Button>
-						</DropdownMenuTrigger>
-						<DropdownMenuContent className="w-56">
-							<DropdownMenuCheckboxItem
-								checked={showStatusBar}
-								onCheckedChange={setShowStatusBar}
-							>
-								All API Keys
-							</DropdownMenuCheckboxItem>
-							<DropdownMenuCheckboxItem
-								checked={showActivityBar}
-								onCheckedChange={setShowActivityBar}
-							>
-								Get Payed Metabase
-							</DropdownMenuCheckboxItem>
-							<DropdownMenuCheckboxItem
-								checked={showPanel}
-								onCheckedChange={setShowPanel}
-							>
-								SchoolablesandboxKYC
-							</DropdownMenuCheckboxItem>
-							<DropdownMenuCheckboxItem
-								checked={showPanel}
-								onCheckedChange={setShowPanel}
-							>
-								PayedHQ OTP
-							</DropdownMenuCheckboxItem>
-							<DropdownMenuCheckboxItem
-								checked={showPanel}
-								onCheckedChange={setShowPanel}
-							>
-								Getpayed app
-							</DropdownMenuCheckboxItem>
-							<DropdownMenuCheckboxItem
-								checked={showPanel}
-								onCheckedChange={setShowPanel}
-							>
-								cone
-							</DropdownMenuCheckboxItem>
-							<DropdownMenuCheckboxItem
-								checked={showPanel}
-								onCheckedChange={setShowPanel}
-							>
-								id bank
-							</DropdownMenuCheckboxItem>
-						</DropdownMenuContent>
-					</DropdownMenu>
-				</div>
-
-				<div className="mt-4 mx-10">
-					<Table className="min-w-full border-spacing-0  text-left">
-						{/* min-w-full border-separate border-spacing-0  text-left */}
-						<TableHeader className="header border rounded-xl border-slate-600 bg-gray-100 font-light justify-between">
-							{table.getHeaderGroups().map((headerGroup) => (
-								<TableRow key={headerGroup.id}>
-									{headerGroup.headers.map((header) => (
-										<TableHead
-											key={header.id}
-											className="h-9 border-b border-t border-slate-6 px-3 text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100"
-										>
-											{header.isPlaceholder
-												? null
-												: flexRender(
-														header.column.columnDef.header,
-														header.getContext()
-												  )}
-										</TableHead>
+			<div className="mt-4 mx-10">
+				<Table className="min-w-full border-spacing-0  text-left">
+					{/* min-w-full border-separate border-spacing-0  text-left */}
+					<TableHeader className="header border rounded-xl border-slate-600 bg-gray-100 font-light justify-between">
+						{table.getHeaderGroups().map((headerGroup) => (
+							<TableRow key={headerGroup.id}>
+								{headerGroup.headers.map((header) => (
+									<TableHead
+										key={header.id}
+										className="h-9 border-b border-t border-slate-6 px-3 text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100"
+									>
+										{header.isPlaceholder
+											? null
+											: flexRender(
+													header.column.columnDef.header,
+													header.getContext()
+											  )}
+									</TableHead>
+								))}
+							</TableRow>
+						))}
+					</TableHeader>
+					<TableBody>
+						{table.getRowModel().rows?.length ? (
+							table.getRowModel().rows.map((row) => (
+								<TableRow
+									key={row.id}
+									data-state={row.getIsSelected() && "selected"}
+								>
+									{row.getVisibleCells().map((cell) => (
+										<TableCell key={cell.id}>
+											{flexRender(
+												cell.column.columnDef.cell,
+												cell.getContext()
+											)}
+										</TableCell>
 									))}
 								</TableRow>
-							))}
-						</TableHeader>
-						<TableBody>
-							{table.getRowModel().rows?.length ? (
-								table.getRowModel().rows.map((row) => (
-									<TableRow
-										key={row.id}
-										data-state={row.getIsSelected() && "selected"}
-									>
-										{row.getVisibleCells().map((cell) => (
-											<TableCell key={cell.id}>
-												{flexRender(
-													cell.column.columnDef.cell,
-													cell.getContext()
-												)}
-											</TableCell>
-										))}
-									</TableRow>
-								))
-							) : (
-								<TableRow>
-									<TableCell
-										colSpan={columns.length}
-										className="h-24 text-center"
-									>
-										No results.
-									</TableCell>
-								</TableRow>
-							)}
-						</TableBody>
-					</Table>
-				</div>
+							))
+						) : (
+							<TableRow>
+								<TableCell
+									colSpan={columns.length}
+									className="h-24 text-center"
+								>
+									No results.
+								</TableCell>
+							</TableRow>
+						)}
+					</TableBody>
+				</Table>
+			</div>
 
-				<div className="flex items-center justify-end space-x-2 py-2">
-					<div className="flex-1 text-sm text-muted-foreground">
-						{table.getFilteredSelectedRowModel().rows.length} of{" "}
-						{table.getFilteredRowModel().rows.length} row(s) selected.
-					</div>
-					<div className="space-x-2">
-						<Button
-							variant="outline"
-							size="sm"
-							onClick={() => table.previousPage()}
-							disabled={!table.getCanPreviousPage()}
-						>
-							Previous
-						</Button>
-						<Button
-							variant="outline"
-							size="sm"
-							onClick={() => table.nextPage()}
-							disabled={!table.getCanNextPage()}
-						>
-							Next
-						</Button>
-					</div>
+			<div className="flex items-center justify-end space-x-2 py-2">
+				<div className="flex-1 text-sm text-muted-foreground">
+					{table.getFilteredSelectedRowModel().rows.length} of{" "}
+					{table.getFilteredRowModel().rows.length} row(s) selected.
+				</div>
+				<div className="space-x-2">
+					<Button
+						variant="outline"
+						size="sm"
+						onClick={() => table.previousPage()}
+						disabled={!table.getCanPreviousPage()}
+					>
+						Previous
+					</Button>
+					<Button
+						variant="outline"
+						size="sm"
+						onClick={() => table.nextPage()}
+						disabled={!table.getCanNextPage()}
+					>
+						Next
+					</Button>
 				</div>
 			</div>
-		);
-
-
+		</div>
+	);
 }

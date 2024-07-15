@@ -51,7 +51,7 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
-import { Badge } from "./ui/badge";
+import { Badge } from "../ui/badge";
 import ApiButton from "./ApiButtons";
 
 const data: Payment[] = [
@@ -133,11 +133,14 @@ const data: Payment[] = [
 export type Payment = {
 	id: string;
 	name: string;
-	lastUsed: "3 days ago" | "about 5 days ago" | "3 months ago"| "11 months ago";
+	lastUsed:
+		| "3 days ago"
+		| "about 5 days ago"
+		| "3 months ago"
+		| "11 months ago";
 	token: string;
-	permission: "full access"| "sending access";
-	created: "3 days ago" | "about 5 days ago" | "3 months ago"| "11 months ago";
-
+	permission: "full access" | "sending access";
+	created: "3 days ago" | "about 5 days ago" | "3 months ago" | "11 months ago";
 };
 
 export const columns: ColumnDef<Payment>[] = [
@@ -473,7 +476,6 @@ export const columns: ColumnDef<Payment>[] = [
 ];
 
 export function ApiKeyTable() {
-
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
 		[]
@@ -503,94 +505,90 @@ export function ApiKeyTable() {
 
 	type Checked = DropdownMenuCheckboxItemProps["checked"];
 
-		return (
-			<div className="m-8 text-gray-600 ">
-				<div className="flex justify-between items-center m-9  ">
-					<h1 className="font-bold text-gray-800 text-3xl">API Keys</h1>
-					<ApiButton />
-				</div>
+	return (
+		<div className="m-8 text-gray-600 ">
+			<div className="flex justify-between items-center m-9  ">
+				<h1 className="font-bold text-gray-800 text-3xl">API Keys</h1>
+				<ApiButton />
+			</div>
 
-				
-
-				<div className="mt-4 mx-10">
-					<Table className="min-w-full border-spacing-0  text-left">
-						{/* min-w-full border-separate border-spacing-0  text-left */}
-						<TableHeader className="header border rounded-xl border-slate-600 bg-gray-100 font-light justify-between">
-							{table.getHeaderGroups().map((headerGroup) => (
-								<TableRow key={headerGroup.id}>
-									{headerGroup.headers.map((header) => (
-										<TableHead
-											key={header.id}
-											className="h-9 border-b border-t border-slate-6 px-3 text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100"
-										>
-											{header.isPlaceholder
-												? null
-												: flexRender(
-														header.column.columnDef.header,
-														header.getContext()
-												  )}
-										</TableHead>
+			<div className="mt-4 mx-10">
+				<Table className="min-w-full border-spacing-0  text-left">
+					{/* min-w-full border-separate border-spacing-0  text-left */}
+					<TableHeader className="header border rounded-xl border-slate-600 bg-gray-100 font-light justify-between">
+						{table.getHeaderGroups().map((headerGroup) => (
+							<TableRow key={headerGroup.id}>
+								{headerGroup.headers.map((header) => (
+									<TableHead
+										key={header.id}
+										className="h-9 border-b border-t border-slate-6 px-3 text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100"
+									>
+										{header.isPlaceholder
+											? null
+											: flexRender(
+													header.column.columnDef.header,
+													header.getContext()
+											  )}
+									</TableHead>
+								))}
+							</TableRow>
+						))}
+					</TableHeader>
+					<TableBody>
+						{table.getRowModel().rows?.length ? (
+							table.getRowModel().rows.map((row) => (
+								<TableRow
+									key={row.id}
+									data-state={row.getIsSelected() && "selected"}
+								>
+									{row.getVisibleCells().map((cell) => (
+										<TableCell key={cell.id}>
+											{flexRender(
+												cell.column.columnDef.cell,
+												cell.getContext()
+											)}
+										</TableCell>
 									))}
 								</TableRow>
-							))}
-						</TableHeader>
-						<TableBody>
-							{table.getRowModel().rows?.length ? (
-								table.getRowModel().rows.map((row) => (
-									<TableRow
-										key={row.id}
-										data-state={row.getIsSelected() && "selected"}
-									>
-										{row.getVisibleCells().map((cell) => (
-											<TableCell key={cell.id}>
-												{flexRender(
-													cell.column.columnDef.cell,
-													cell.getContext()
-												)}
-											</TableCell>
-										))}
-									</TableRow>
-								))
-							) : (
-								<TableRow>
-									<TableCell
-										colSpan={columns.length}
-										className="h-24 text-center"
-									>
-										No results.
-									</TableCell>
-								</TableRow>
-							)}
-						</TableBody>
-					</Table>
-				</div>
+							))
+						) : (
+							<TableRow>
+								<TableCell
+									colSpan={columns.length}
+									className="h-24 text-center"
+								>
+									No results.
+								</TableCell>
+							</TableRow>
+						)}
+					</TableBody>
+				</Table>
+			</div>
 
-				<div className="flex items-center justify-end space-x-2 py-2">
-					<div className="flex-1 text-sm text-muted-foreground">
-						{table.getFilteredSelectedRowModel().rows.length} of{" "}
-						{table.getFilteredRowModel().rows.length} row(s) selected.
-					</div>
-					<div className="space-x-2">
-						<Button
-							variant="outline"
-							size="sm"
-							onClick={() => table.previousPage()}
-							disabled={!table.getCanPreviousPage()}
-						>
-							Previous
-						</Button>
-						<Button
-							variant="outline"
-							size="sm"
-							onClick={() => table.nextPage()}
-							disabled={!table.getCanNextPage()}
-						>
-							Next
-						</Button>
-					</div>
+			<div className="flex items-center justify-end space-x-2 py-2">
+				<div className="flex-1 text-sm text-muted-foreground">
+					{table.getFilteredSelectedRowModel().rows.length} of{" "}
+					{table.getFilteredRowModel().rows.length} row(s) selected.
+				</div>
+				<div className="space-x-2">
+					<Button
+						variant="outline"
+						size="sm"
+						onClick={() => table.previousPage()}
+						disabled={!table.getCanPreviousPage()}
+					>
+						Previous
+					</Button>
+					<Button
+						variant="outline"
+						size="sm"
+						onClick={() => table.nextPage()}
+						disabled={!table.getCanNextPage()}
+					>
+						Next
+					</Button>
 				</div>
 			</div>
-		);
-
-
+		</div>
+	);
 }

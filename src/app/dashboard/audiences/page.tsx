@@ -1,5 +1,5 @@
-"use client"
-import React,{useState} from "react";
+"use client";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { LiaCodeSolid } from "react-icons/lia";
 import {
@@ -21,7 +21,7 @@ import { TbUsersGroup } from "react-icons/tb";
 import { CiSearch } from "react-icons/ci";
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 import { Badge } from "@/components/ui/badge";
-import AudiencesButton from "@/components/AudiencesButton";
+import AudiencesButton from "@/components/audience-page/AudiencesButton";
 
 const Audiences = () => {
 	type Checked = DropdownMenuCheckboxItemProps["checked"];
@@ -32,12 +32,12 @@ const Audiences = () => {
 	const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true);
 	const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false);
 	const [showPanel, setShowPanel] = React.useState<Checked>(false);
-	const [contacts,setContacts] = useState("0");
+	const [contacts, setContacts] = useState("0");
 	const [unsubscribers, setUnsubscribers] = useState("0");
-	const [update,setUpdate]= useState("16 May");
-	const [audienceId, setAudienceId] =useState("do629873-3040-4fd5-9493-");
+	const [update, setUpdate] = useState("16 May");
+	const [audienceId, setAudienceId] = useState("do629873-3040-4fd5-9493-");
 	const [copied, setCopied] = useState(false);
-	const [ content,setContent] = useState(false)
+	const [content, setContent] = useState(false);
 
 	const copyToClipboard = (content: string) => {
 		navigator.clipboard
@@ -302,7 +302,7 @@ const Audiences = () => {
 					</div>
 				</div>
 
-			<AudiencesButton />
+				<AudiencesButton />
 			</div>
 
 			<div className="flex flex-wrap ml-8 mr-4 my-4">

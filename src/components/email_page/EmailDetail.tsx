@@ -1,9 +1,9 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { LiaCodeSolid } from "react-icons/lia";
-import ye from "../../public/images/dot.jpeg"
+import ye from "../../public/images/dot.jpeg";
 import {
 	Popover,
 	PopoverContent,
@@ -24,7 +24,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import MailTab from "./MailTab";
-import SheetApiButton from "./SheetApiButton";
+import SheetApiButton from "../SheetApiButton";
 // Define the type for mail details
 type MailDetails = {
 	id: string;
@@ -45,7 +45,7 @@ export default function EmailDetails() {
 		const status = searchParams.get("status");
 		const subject = searchParams.get("subject");
 		const sent = searchParams.get("sent");
-		const name= searchParams.get("name");
+		const name = searchParams.get("name");
 
 		if (id && to && status && subject && sent && name) {
 			setMailDetails({ id, to, status, subject, sent, name });
@@ -55,30 +55,29 @@ export default function EmailDetails() {
 	if (!mailDetails) {
 		return <div className="m-20">Loading...</div>;
 	}
-const getStatusClasses = (status: any) => {
-	switch (status) {
-		case "delivered":
-			return {
-				variant: "default",
-				bgColor: "bg-green-100",
-				textColor: "text-[#1c6537]",
-			};
-		case "bounced":
-			return {
-				variant: "destructive",
-				bgColor: "bg-red-100",
-				textColor: "text-[#b94646]",
-			};
-		default:
-			return {
-				variant: "secondary",
-				bgColor: "bg-sky-100",
-				textColor: "text-[#2b70de]",
-			};
-	}
-	
-};
- const { bgColor, textColor } = getStatusClasses(mailDetails.status);
+	const getStatusClasses = (status: any) => {
+		switch (status) {
+			case "delivered":
+				return {
+					variant: "default",
+					bgColor: "bg-green-100",
+					textColor: "text-[#1c6537]",
+				};
+			case "bounced":
+				return {
+					variant: "destructive",
+					bgColor: "bg-red-100",
+					textColor: "text-[#b94646]",
+				};
+			default:
+				return {
+					variant: "secondary",
+					bgColor: "bg-sky-100",
+					textColor: "text-[#2b70de]",
+				};
+		}
+	};
+	const { bgColor, textColor } = getStatusClasses(mailDetails.status);
 	return (
 		<div className="">
 			<div className="container flex justify-between  mt-8">

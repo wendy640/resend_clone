@@ -19,7 +19,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
-import SheetApiButton from "./SheetApiButton";
+import SheetApiButton from "../SheetApiButton";
 
 const ApiButton = () => {
 	type Checked = DropdownMenuCheckboxItemProps["checked"];

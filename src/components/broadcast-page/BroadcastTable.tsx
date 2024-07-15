@@ -39,7 +39,6 @@ import {
 import BroadcastButton from "./BroadcastButton";
 
 const data: Payment[] = [
-	
 	{
 		id: "bhqecj1p",
 		name: "Untitled",
@@ -116,12 +115,10 @@ export const columns: ColumnDef<Payment>[] = [
 						},
 					}}
 				>
-				
 					<span className=" flex mb-4 pt-2 capitalize cursor-pointer truncate border-b border-dashed border-slate-700 transition-colors duration-300 ease-in-out hover:border-blue-600">
 						{row.getValue("name")}
 					</span>
 				</Link>
-				
 			</div>
 		),
 	},
@@ -129,7 +126,9 @@ export const columns: ColumnDef<Payment>[] = [
 		accessorKey: "status",
 		header: "Status",
 		cell: ({ row }) => (
-			<div className="capitalize border bg-gray-50 border-gray-300 text-gray-400 text-[12px] px-2 w-12 rounded-sm ">{row.getValue("status")}</div>
+			<div className="capitalize border bg-gray-50 border-gray-300 text-gray-400 text-[12px] px-2 w-12 rounded-sm ">
+				{row.getValue("status")}
+			</div>
 		),
 	},
 
