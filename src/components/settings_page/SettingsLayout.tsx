@@ -1,26 +1,16 @@
-"use client";
-import { useEffect } from "react";
-import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
-import UsageSettings from "@/app/dashboard/settings/usage/page";
-import BillingSettings from "@/app/dashboard/settings/billing/page";
-import DocumentSettings from "@/app/dashboard/settings/document/page";
-import IntegrationsSettings from "@/app/dashboard/settings/integrations/page";
-import TeamSettings from "@/app/dashboard/settings/team/page";
-import SmtpSettings from "@/app/dashboard/settings/smtp/page";
+"use client"
+import React, { ReactNode } from "react";
 
-export default function SettingsPage() {
-	const router = useRouter();
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+interface SettingsLayoutProps {
+	children: ReactNode;
+}
+
+const SettingsLayout: React.FC<SettingsLayoutProps> = ({ children }) => {
 	const pathname = usePathname();
 	const section = pathname.split("/").pop();
-
-	useEffect(() => {
-		// Redirect to usage if the section is empty or the base path is accessed
-		if (pathname === "/dashboard/settings" || !section) {
-			router.replace("/dashboard/settings/usage");
-		}
-	}, [section, router, pathname]);
-
 	return (
 		<div className="ml-40 ">
 			<h1 className="text-[27px] tracking-wide dark:text-white text-gray-700 font-bold mb-6">
@@ -33,7 +23,7 @@ export default function SettingsPage() {
 							href="/dashboard/settings/usage"
 							className={`${
 								section === "usage"
-									? "font-medium border p-1.5 rounded-sm bg-gray-200 dark:bg-gray-700"
+									? "font-medium border p-1.5 rounded-sm bg-gray-200 dark:bg-gray-700 "
 									: "hover:border hover:bg-gray-200 hover:dark:bg-gray-700 hover:p-1.5 hover:rounded-sm"
 							}`}
 						>
@@ -102,13 +92,9 @@ export default function SettingsPage() {
 					</li>
 				</ul>
 			</nav>
-
-			{section === "usage" && <UsageSettings />}
-			{section === "billing" && <BillingSettings />}
-			{section === "team" && <TeamSettings />}
-			{section === "smtp" && <SmtpSettings />}
-			{section === "integrations" && <IntegrationsSettings />}
-			{section === "document" && <DocumentSettings />}
+			{children}
 		</div>
 	);
-}
+};
+
+export default SettingsLayout;
