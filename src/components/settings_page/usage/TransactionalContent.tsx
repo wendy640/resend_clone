@@ -1,6 +1,6 @@
 import React from 'react'
 import { Slider } from "@/components/ui/slider";
-
+import { Button } from '@/components/ui/button';
 export const TransactionalContent = () => {
   return (
 		<>
@@ -174,7 +174,7 @@ export const TransactionalContent = () => {
 							</span>
 							<hr className="border-gray-300" />
 							<span className="font-sans my-5 text-center text-sm leading-4 text-slate-12 font-normal">
-								<Slider className="" defaultValue={[33]} max={100} step={1} />
+								<Slider className="mt-1" defaultValue={[33]} max={100} step={1}  />
 							</span>
 
 							<span className="sans mb-5 text-center text-sm leading-[1.6] text-slate-12 font-normal">
