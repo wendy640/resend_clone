@@ -1,12 +1,14 @@
 "use client"
-import React,{useState} from 'react'
+import React,{useState} from "react";
 import { Slider } from "@/components/ui/slider";
-import { Button } from '@/components/ui/button';
-export const TransactionalContent = () => {const [amount, setAmount] = useState(20); 
+import { Button } from "@/components/ui/button";
+export const MarketingContent = () => {
+const [amount, setAmount] = useState(20); 
 
 const handleSliderChange = (value: number[]) => {
-	setAmount(value[0]); }
-  return (
+	setAmount(value[0]); 
+};
+	return (
 		<>
 			<div className="flex w-full flex-col gap-6 md:flex-row">
 				<div className="relative flex flex-1 rounded-2xl border border-slate-6">
@@ -14,6 +16,9 @@ const handleSliderChange = (value: number[]) => {
 						<div className="flex flex-col text-center">
 							<h3 className="font-book font-styling font-display mb-6 flex flex-auto justify-center gap-2 text-base tracking-tight text-slate-12">
 								<span className="">Free</span>
+								<span className="inline-flex select-none items-center whitespace-nowrap font-medium bg-gray-100 text-gray-600 text-xs h-6 px-2 rounded">
+									Current Plan
+								</span>
 							</h3>
 							<span className="sans mb-6 text-[2.25rem] leading-[1.7] tracking-tight text-slate-12 font-normal">
 								$0 / mo
@@ -168,12 +173,8 @@ const handleSliderChange = (value: number[]) => {
 					<div className="relative z-20 flex w-full flex-col space-y-6 p-6">
 						<div className="flex flex-col text-center">
 							<h3 className="font-book font-styling font-display mb-6 flex flex-auto justify-center gap-2 text-base tracking-tight text-slate-12">
-								<span>Pro</span>
-								<span className="inline-flex select-none items-center whitespace-nowrap font-medium bg-gray-100 text-gray-600 text-xs h-6 px-2 rounded">
-									Current Plan
-								</span>
+								<span>Pro Marketing</span>
 							</h3>
-
 							<span className="amount sans mb-6 text-[2.25rem] leading-[1.7] tracking-tight text-slate-12 font-normal">
 								${amount} / mo
 							</span>
@@ -463,4 +464,4 @@ const handleSliderChange = (value: number[]) => {
 			</div>
 		</>
 	);
-}
+};
