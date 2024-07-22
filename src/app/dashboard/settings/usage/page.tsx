@@ -1,4 +1,7 @@
 import SettingsLayout from "@/components/settings_page/SettingsLayout";
+import { Usage_UpdateButton } from "@/components/settings_page/usage/Usage_UpgradeButton";
+import { Usage_ManageButton } from "@/components/settings_page/usage/Usage_ManageButton";
+
 
 const UsageSettings: React.FC = () => {
 	return (
@@ -13,18 +16,7 @@ const UsageSettings: React.FC = () => {
 							Integrate email into your app using the Resend API or SMTP
 							interface.
 						</span>
-						<button className="text-sm h-8 pl-3 pr-3 rounded-md gap-1 font-semibold dark:bg-gray-700  dark:text-slate-100 bg-gray-100 text-gray-700 hover:bg-slate-400 dark:hover:bg-slate-400 focus-visible:ring-2 focus-visible:ring-slate-700 focus-visible:outline-none focus-visible:bg-slate-400 disabled:hover:bg-slate-400 inline-flex items-center justify-center border select-none relative disabled:cursor-not-allowed disabled:opacity-70 transition ease-in-out duration-200 cursor-pointer">
-							<span className="absolute w-full inset-0 flex items-center justify-center invisible">
-								<span className="inline-flex items-center gap-1">
-									<span className="h-1 w-1 animate-plop rounded-full"></span>
-									<span className="h-1 w-1 animate-plop2 rounded-full bg-slate-100"></span>
-									<span className="h-1 w-1 animate-plop3 rounded-full bg-slate-100"></span>
-								</span>
-							</span>
-							<span className="inline-flex items-center justify-center gap-1 truncate visible">
-								Manage
-							</span>
-						</button>
+						<Usage_ManageButton />
 					</div>
 					<div className="w-full md:w-1/2">
 						<h3 className="font-medium capitalize text-base  ">pro</h3>
@@ -113,18 +105,7 @@ const UsageSettings: React.FC = () => {
 						<span className="mb-4 hidden md:block md:w-1/2 text-sm text-gray-600 dark:text-white font-normal">
 							Design and send marketing emails using Broadcasts and Audiences.
 						</span>
-						<button className="text-sm h-8 pl-3 pr-3 rounded-md gap-1 font-semibold bg-black dark:bg-white text-white dark:text-black border-slate-6 hover:bg-black/90 dark:hover:bg-white/90 focus-visible:ring-2 dark:focus-visible:ring-white/40 focus-visible:ring-black/40 focus-visible:outline-none dark:focus-visible:bg-white/90 focus-visible:bg-black/90 disabled:hover:bg-black dark:disabled:hover:bg-white inline-flex items-center justify-center border select-none relative disabled:cursor-not-allowed disabled:opacity-70 transition ease-in-out duration-200 cursor-pointer">
-							<span className="absolute w-full inset-0 flex items-center justify-center invisible">
-								<span className="inline-flex items-center gap-1">
-									<span className="h-1 w-1 animate-plop rounded-full bg-root"></span>
-									<span className="h-1 w-1 animate-plop2 rounded-full bg-root"></span>
-									<span className="h-1 w-1 animate-plop3 rounded-full bg-root"></span>
-								</span>
-							</span>
-							<span className="inline-flex items-center justify-center gap-1 truncate visible">
-								Upgrade
-							</span>
-						</button>
+						<Usage_UpdateButton />
 					</div>
 					<div className="w-full md:w-1/2">
 						<h3 className="font-medium capitalize text-base text-slate-12 font-bold">
@@ -268,7 +249,7 @@ const UsageSettings: React.FC = () => {
 									<div>
 										<a
 											className="text-sm h-8 pl-3 pr-3 rounded-md gap-1 font-semibold bg-black dark:bg-white text-white dark:text-black border-slate-6 hover:bg-black/90 dark:hover:bg-white/90 focus-visible:ring-2 dark:focus-visible:ring-white/40 focus-visible:ring-black/40 focus-visible:outline-none dark:focus-visible:bg-white/90 focus-visible:bg-black/90 disabled:hover:bg-black dark:disabled:hover:bg-white inline-flex items-center justify-center border select-none relative disabled:cursor-not-allowed disabled:opacity-70 transition ease-in-out duration-200"
-											href="/contact"
+											href="https://resend.com/contact"
 										>
 											Request Dedicated IP
 										</a>
