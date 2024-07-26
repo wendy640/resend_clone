@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import SettingsLayout from "@/components/settings_page/SettingsLayout";
 import { Ellipsis } from "lucide-react";
 import { ViewPlanButton } from "@/components/settings_page/billings/ViewPlans";
+import { BillingForm } from "@/components/settings_page/billings/BillingsForm";
 
 const BillingSettings = () => {
 	const [emailNum, setEmailNum] = useState("50,000");
@@ -105,36 +106,7 @@ const BillingSettings = () => {
 					</div>
 				</section>
 
-				<section className="rounded-lg border border-slate-6">
-					<div className="border-b border-slate-6 px-6 py-4">
-						<h2 className="text-xl tracking-[-0.16px] text-slate-12 font-bold">
-							Billing Address
-						</h2>
-					</div>
-					<form>
-						<div className="px-6 py-4 my-2 max-w-md">
-							
-								<div
-									
-									style={{
-										margin: "-4px 0px",
-										padding: "0px",
-										border: "none",
-										display: "block",
-										background: "transparent",
-										position: "relative",
-										opacity: "1",
-										clear: "both",
-										transition: "height 0.35s ease 0s",
-									}}
-								></div>
-				
-						</div>
-						<div className="flex border-t border-slate-6 px-6 py-3">
-							<Button type="submit">Save</Button>
-						</div>
-					</form>
-				</section>
+			<BillingForm/>
 			</div>
 		</SettingsLayout>
 	);

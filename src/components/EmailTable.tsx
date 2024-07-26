@@ -541,19 +541,19 @@ export function EmailTable() {
 	const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false);
 	const [showPanel, setShowPanel] = React.useState<Checked>(false);
 	return (
-		<div className="m-8 text-gray-600 ">
+		<div className="m-8  ">
 			<div className="flex justify-between items-center m-9  ">
-				<h1 className="font-bold text-3xl">Emails</h1>
+				<h1 className="font-semibold text-3xl">Emails</h1>
 				<SheetApiButton />
 			</div>
 
-			<div className="flex items-center py-1 space-x-2 mx-9 ">
+			<div className="flex items-center  space-x-2 mx-9 ">
 				<div className="relative flex-grow max-w-[50%]">
 					<CiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
 					<Input
 						placeholder="Search..."
 						value={(table.getColumn("to")?.getFilterValue() as string) ?? ""}
-						className="pl-10 border border-gray-300 bg-gray-100 font-light h-9 w-full"
+						className="pl-10 border border-slate-500 bg-gray-100 font-light h-8 w-full"
 					/>
 				</div>
 				<DropdownMenu>
