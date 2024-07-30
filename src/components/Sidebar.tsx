@@ -64,7 +64,7 @@ export function Sidebar() {
 	return (
 		<div className=" hidden md:grid md:grid-cols-[220px_1fr] lg:grid-cols-[250px_1fr] min-h-screen bg-bg-subtle dark:bg-slate-950 fixed top-0   h-screen  ">
 			{/* <div className="dark:bg-root hidden h-screen w-[250px] flex-shrink-0 flex-col justify-between border-r border-slate-4 bg-slate-1 px-4 pb-6 dark:border-slate-6 md:flex"> */}
-			<div className="border-r border-gray-100-custom dark:border-gray-700">
+			<div className="border-r border-zinc-200 dark:border-gray-700">
 				<div className="flex h-full max-h-screen flex-col">
 					<div className="flex h-14 items-center px-2 lg:h-[60px] lg:px-6 gap-3">
 						<div className="text-lg font-bold flex items-center justify-center gap-4">

@@ -110,7 +110,7 @@ export const columns: ColumnDef<Payment>[] = [
 		accessorKey: "status",
 		header: "Status",
 		cell: ({ row }) => (
-			<div className="capitalize border bg-gray-50 border-gray-300 text-gray-400 text-[12px] px-2 w-12 rounded-sm ">
+			<div className="capitalize border bg-gray-50 border-zinc-300 text-gray-400 text-[12px] px-2 w-12 rounded-sm ">
 				{row.getValue("status")}
 			</div>
 		),
@@ -194,11 +194,11 @@ export function BroadcastTable() {
 					{/* min-w-full border-separate border-spacing-0  text-left */}
 					<TableHeader className="header border rounded-md border-zinc-300 font-light justify-between">
 						{table.getHeaderGroups().map((headerGroup) => (
-							<TableRow key={headerGroup.id} className="border-zinc-300">
+							<TableRow key={headerGroup.id} className="border-zinc-300 ">
 								{headerGroup.headers.map((header) => (
 									<TableHead
 										key={header.id}
-										className="h-8 border-b border-t border-slate-6 px-3 text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100"
+										className="h-8 border-b border-t border-zinc-300 px-3 text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100"
 									>
 										{header.isPlaceholder
 											? null
@@ -214,7 +214,7 @@ export function BroadcastTable() {
 					<TableBody>
 						{table.getRowModel().rows?.length ? (
 							table.getRowModel().rows.map((row) => (
-								<TableRow
+								<TableRow className="h-8"
 									key={row.id}
 									data-state={row.getIsSelected() && "selected"}
 								>

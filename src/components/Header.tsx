@@ -65,7 +65,7 @@ export const Header = () => {
 	}, [pathname]);
 
 	return (
-		<div className="flex h-[60px] items-center justify-end border-b w-full ">
+		<div className="flex h-[60px] items-center justify-end border-b border-zinc-200 w-full ">
 			<header className="">
 				<HamburgerSheet>
 					<HamburgerSheetTrigger asChild>
