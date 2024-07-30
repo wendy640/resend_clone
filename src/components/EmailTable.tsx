@@ -553,14 +553,14 @@ export function EmailTable() {
 					<Input
 						placeholder="Search..."
 						value={(table.getColumn("to")?.getFilterValue() as string) ?? ""}
-						className="pl-10 border border-slate-300 bg-gray-100 font-light h-8 w-full"
+						className="pl-10 border border-zinc-300 bg-gray-100 font-light h-8 w-full"
 					/>
 				</div>
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="outline"
-							className="flex-grow max-w-[15.5%] border border-slate-300 bg-gray-100 font-light h-8 justify-between"
+							className="flex-grow max-w-[15.5%] border border-zinc-300 bg-gray-100 font-light h-8 justify-between"
 						>
 							Last 3 days <ChevronDown className="h-4 w-4" />
 						</Button>
@@ -597,7 +597,7 @@ export function EmailTable() {
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="outline"
-							className="flex-grow max-w-[15.5%] border border-slate-300 bg-gray-100 font-light h-8 justify-between"
+							className="flex-grow max-w-[15.5%] border border-zinc-300 bg-gray-100 font-light h-8 justify-between"
 						>
 							All Statuses <ChevronDown className="h-4 w-4" />
 						</Button>
@@ -652,7 +652,7 @@ export function EmailTable() {
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="outline"
-							className="flex-grow max-w-[16%] border border-slate-300 bg-gray-100 font-light h-8 justify-between"
+							className="flex-grow max-w-[16%] border border-zinc-300 bg-gray-100 font-light h-8 justify-between"
 						>
 							All API Keys <ChevronDown className="h-4 w-4" />
 						</Button>
@@ -752,7 +752,7 @@ export function EmailTable() {
 							<TableRow>
 								<TableCell
 									colSpan={columns.length}
-									className="h-24 text-center"
+									className="h-28 text-center"
 								>
 									No results.
 								</TableCell>
@@ -762,10 +762,10 @@ export function EmailTable() {
 				</Table>
 			</div>
 
-			<div className="flex items-center justify-end space-x-2 py-2">
-				<div className="flex-1 text-sm text-muted-foreground">
-					{table.getFilteredSelectedRowModel().rows.length} of{" "}
-					{table.getFilteredRowModel().rows.length} row(s) selected.
+			<div className="flex items-center justify-end space-x-2 py-2 mx-10 border-t  border-zinc-300">
+				<div className="flex-1 text-sm text-gray-500">
+					page {table.getFilteredSelectedRowModel().rows.length} of{" "}
+					{table.getFilteredRowModel().rows.length}
 				</div>
 				<div className="space-x-2">
 					<Button

@@ -3,7 +3,7 @@ import React from "react";
 
 const Broadcasts = () => {
 	return (
-		<div className="m-4">
+		<div className="my-10 mx-32">
 			<BroadcastTable />
 		</div>
 	);

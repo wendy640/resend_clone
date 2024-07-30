@@ -37,11 +37,11 @@ const BroadcastButton = () => {
 	};
 
 	return (
-		<div className="button flex mt-8 mr-3">
-			<div className="mr-2">
+		<div className="button flex  mr-3">
+			<div className="">
 				<Button onClick={HandleAddManually} className="font-light h-8 w-25">
 					<Plus className="mr-2 bg-slate-3 size-4" />
-					Create email
+					Create Broadcast
 				</Button>
 			</div>
 		
@@ -49,7 +49,7 @@ const BroadcastButton = () => {
 			<Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
 				<DialogContent className="sm:max-w-[500px]">
 					<DialogHeader>
-						<DialogTitle>Create Email</DialogTitle>
+						<DialogTitle>Create Broadcast</DialogTitle>
 					</DialogHeader>
 					<div className="gap-4 py-4">
 						<div className="grid-cols-4 items-center gap-4 text-gray-500">
