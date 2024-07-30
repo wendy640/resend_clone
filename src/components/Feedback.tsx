@@ -51,7 +51,7 @@ export function Feedback() {
 							<FormControl>
 								<Textarea
 									placeholder="Ideas to improve this page..."
-									className="border-gray-200 resize-none bg-bg-subtle border w-full h-32" // Adjust the textarea size here
+									className="border-zinc-200 resize-none bg-bg-subtle border w-full h-32" // Adjust the textarea size here
 									{...field}
 								/>
 							</FormControl>
