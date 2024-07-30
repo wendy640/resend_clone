@@ -15,19 +15,39 @@ import {
 	SheetTrigger,
 } from "@/components/ui/sheet";
 
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
 const SheetApiButton = () => {
   
   return (
-		<div>
+		<div className="m-1">
 			<Sheet>
 				<SheetTrigger asChild>
-					<Button
-						variant="outline"
-						className="border border-gray-300 bg-gray-100 font-light h-8 w-25"
-					>
-						<LiaCodeSolid className="mr-2 bg-slate-3 size-4" />
-						API
-					</Button>
+					<TooltipProvider>
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<Button
+									variant="outline"
+									className="border border-gray-300 bg-gray-50 font-light h-8 w-20"
+								>
+									<LiaCodeSolid className="mr-1 text-muted-foreground size-4" />
+									API
+								</Button>
+							</TooltipTrigger>
+							<TooltipContent>
+								<p>
+									Open API Reference{" "}
+									<Button className="bg-gray-200 border h-6 px-3 w-1 ml-2 border-gray-300 text-gray-500 dark:text-white">
+										A
+									</Button>
+								</p>
+							</TooltipContent>
+						</Tooltip>
+					</TooltipProvider>
 				</SheetTrigger>
 				<SheetContent>
 					<SheetHeader>

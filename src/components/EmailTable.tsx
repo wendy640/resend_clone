@@ -553,14 +553,14 @@ export function EmailTable() {
 					<Input
 						placeholder="Search..."
 						value={(table.getColumn("to")?.getFilterValue() as string) ?? ""}
-						className="pl-10 border border-slate-500 bg-gray-100 font-light h-8 w-full"
+						className="pl-10 border border-slate-300 bg-gray-100 font-light h-8 w-full"
 					/>
 				</div>
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="outline"
-							className="flex-grow max-w-[15.5%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
+							className="flex-grow max-w-[15.5%] border border-slate-300 bg-gray-100 font-light h-8 justify-between"
 						>
 							Last 3 days <ChevronDown className="h-4 w-4" />
 						</Button>
@@ -597,7 +597,7 @@ export function EmailTable() {
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="outline"
-							className="flex-grow max-w-[15.5%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
+							className="flex-grow max-w-[15.5%] border border-slate-300 bg-gray-100 font-light h-8 justify-between"
 						>
 							All Statuses <ChevronDown className="h-4 w-4" />
 						</Button>
@@ -652,7 +652,7 @@ export function EmailTable() {
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="outline"
-							className="flex-grow max-w-[16%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
+							className="flex-grow max-w-[16%] border border-slate-300 bg-gray-100 font-light h-8 justify-between"
 						>
 							All API Keys <ChevronDown className="h-4 w-4" />
 						</Button>
@@ -705,15 +705,20 @@ export function EmailTable() {
 			</div>
 
 			<div className="mt-4 mx-10">
-				<Table className="min-w-full border-spacing-0  text-left">
-					{/* min-w-full border-separate border-spacing-0  text-left */}
-					<TableHeader className="header border rounded-xl border-slate-600 bg-gray-100 font-light justify-between">
+				<Table className="min-w-full border-spacing-0 text-left  ">
+					<TableHeader>
 						{table.getHeaderGroups().map((headerGroup) => (
-							<TableRow key={headerGroup.id}>
-								{headerGroup.headers.map((header) => (
+							<TableRow key={headerGroup.id} className="border rounded-md">
+								{headerGroup.headers.map((header, index) => (
 									<TableHead
 										key={header.id}
-										className="h-9 border-b border-t border-slate-6 px-3 text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100"
+										className={`h-8 px-3 text-xs font-semibold   ${
+											index === 0 ? "rounded-l-sm" : ""
+										} ${
+											index === headerGroup.headers.length - 1
+												? "rounded-r-sm"
+												: ""
+										}`}
 									>
 										{header.isPlaceholder
 											? null

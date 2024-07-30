@@ -86,7 +86,7 @@ export function Sidebar() {
 						<nav className="grid items-start px-2 text-sm font-medium lg:px-4">
 	<Link
 		href="/dashboard/emails"
-		className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80  transition-all hover:text-primary ${
+		className={`flex items-center gap-3 rounded-lg px-3 py-3 text-[#70757E] opacity-80  transition-all hover:text-primary  ${
 			isActive("/dashboard/emails") ? " bg-[#F4F4F5]" : ""
 		}`}
 	>
