@@ -51,8 +51,8 @@ const Audiences = () => {
 			});
 	};
 	return (
-		<div className="my-4 mx-10">
-			<div className="container flex justify-between  mt-8">
+		<div className="my-4 mx-16">
+			<div className="container flex justify-between  mt-8 ">
 				<div className="mail flex item-center ">
 					<div className="relative  w-20 h-20 flex items-center justify-center">
 						{" "}
@@ -305,39 +305,39 @@ const Audiences = () => {
 				<AudiencesButton />
 			</div>
 
-			<div className="flex flex-wrap ml-8 mr-4 my-4">
+			<div className="flex flex-wrap ml-6 mr-4 mt-4 mb-8">
 				<div className="mt-8 flex w-full flex-col gap-2 md:basis-1/4">
-					<label className=" text-gray-400 uppercase text-xs">
+					<label className=" text-zinc-600 uppercase text-xs">
 						ALL CONTACTS
 					</label>
 					<div className="flex gap-2">
-						<span className="text-2xl text-gray-600  font-normal">
+						<span className="text-2xl text-zinc-900  font-normal">
 							{contacts}
 						</span>
 					</div>
 				</div>
 				<div className="mt-8 flex w-full flex-col gap-2 md:basis-1/4">
-					<label className=" text-gray-400 uppercase text-xs">
+					<label className=" text-zinc-600 uppercase text-xs">
 						UNSUBSCRIBERS
 					</label>
-					<span className="text-2xl text-gray-600 font-normal">
+					<span className="text-2xl text-zinc-900 font-normal">
 						{unsubscribers}
 					</span>
 				</div>
 				<div className="mt-8 flex w-full flex-col gap-2 md:basis-1/4">
-					<label className=" text-gray-400 uppercase text-xs">
+					<label className=" text-zinc-600 uppercase text-xs">
 						LAST UPDATE
 					</label>
-					<span className="text-2xl text-gray-600  font-normal">{update}</span>
+					<span className="text-2xl text-zinc-900  font-normal">{update}</span>
 				</div>
 				<div className=" mt-8 flex w-full flex-col gap-2 md:basis-1/4">
-					<label className=" text-gray-400 uppercase text-xs">
-						AUNDIENCE ID
+					<label className=" text-zinc-600 uppercase text-xs ml-4">
+						AUDIENCE ID
 					</label>
 					<div className="flex h-5 items-center gap-2 ">
-						<span className="flex text-sm  font-normal border rounded-sm bg-gray-200 gap-1 px-2 py-1 text-gray-500">
+						<span className="flex text-sm  font-normal border rounded-sm bg-zinc-200 border-zinc-300 gap-1 px-2 py-2 text-zinc-900 ml-4">
 							{audienceId}
-							<div className="items-center justify-center">
+							<div className="items-center justify-center ">
 								{copied ? (
 									<Check className="cursor-pointer" color="gray" size={14} />
 								) : (
@@ -354,20 +354,20 @@ const Audiences = () => {
 				</div>
 			</div>
 
-			<div className="flex items-center py-1 space-x-2 ml-9 mr-4 my-4">
-				<div className="relative flex-grow max-w-[70%]">
+			<div className="flex items-center py-1 space-x-2  mx-6 my-2">
+				<div className="relative flex-grow max-w-[80%]">
 					<CiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
 					<Input
 						placeholder="Search..."
 						// value={(table.getColumn("to")?.getFilterValue() as string) ?? ""}
-						className="pl-10 border border-gray-300 bg-gray-100 font-light h-9 w-full"
+						className="pl-10 border border-zinc-300 bg-gray-100 font-light h-8 w-full"
 					/>
 				</div>
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="outline"
-							className="flex-grow max-w-[30%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
+							className="flex-grow max-w-[40%] border border-zinc-300 bg-gray-100 font-light h-8 justify-between"
 						>
 							Last 3 days <ChevronDown className="h-4 w-4" />
 						</Button>
@@ -401,14 +401,16 @@ const Audiences = () => {
 				</DropdownMenu>
 			</div>
 
-			<div className="content border border-slate-300 rounded-sm ml-6 mr-6 ">
+			<div className="content border border-zinc-300 rounded-md ml-6 mr-6 ">
 				{content ? (
 					<p>yes</p>
 				) : (
-					<div className="no flex items-center justify-center h-full  ">
+					<div className="no flex items-center justify-center h-full   ">
 						<div className="text-center m-40">
-							<h2 className="font-bold text-lg">No contact yet</h2>
-							<p className="text-gray-400">
+							<h2 className="font-bold text-zinc-800 text-lg">
+								No contact yet
+							</h2>
+							<p className="text-zinc-500 font-normal">
 								Add contacts and they will show up here
 							</p>
 						</div>

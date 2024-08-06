@@ -1,7 +1,6 @@
-import React from 'react'
-import { Button } from './ui/button';
-import { LiaCodeSolid } from 'react-icons/lia';
-
+import React from "react";
+import { Button } from "./ui/button";
+import { LiaCodeSolid } from "react-icons/lia";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -21,34 +20,34 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
+
 const SheetApiButton = () => {
-  
-  return (
+	return (
 		<div className="m-1">
 			<Sheet>
-				<SheetTrigger asChild>
-					<TooltipProvider>
-						<Tooltip>
+				<TooltipProvider>
+					<Tooltip>
+						<SheetTrigger asChild>
 							<TooltipTrigger asChild>
 								<Button
 									variant="outline"
-									className="border border-gray-300 bg-gray-50 font-light h-8 w-20"
+									className="border border-zinc-300 bg-gray-50 font-light h-8 w-20"
 								>
 									<LiaCodeSolid className="mr-1 text-muted-foreground size-4" />
 									API
 								</Button>
 							</TooltipTrigger>
-							<TooltipContent>
-								<p>
-									Open API Reference{" "}
-									<Button className="bg-gray-200 border h-6 px-3 w-1 ml-2 border-gray-300 text-gray-500 dark:text-white">
-										A
-									</Button>
-								</p>
-							</TooltipContent>
-						</Tooltip>
-					</TooltipProvider>
-				</SheetTrigger>
+						</SheetTrigger>
+						<TooltipContent>
+							<p>
+								Open API Reference{" "}
+								<Button className="bg-gray-200 border h-6 px-3 w-1 ml-2 border-gray-300 text-gray-500 dark:text-white">
+									A
+								</Button>
+							</p>
+						</TooltipContent>
+					</Tooltip>
+				</TooltipProvider>
 				<SheetContent>
 					<SheetHeader>
 						<SheetTitle>Edit profile</SheetTitle>
@@ -79,6 +78,6 @@ const SheetApiButton = () => {
 			</Sheet>
 		</div>
 	);
-}
+};
 
 export default SheetApiButton;
