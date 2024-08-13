@@ -508,20 +508,22 @@ export function ApiKeyTable() {
 	return (
 		<div className="m-8 text-gray-600 ">
 			<div className="flex justify-between items-center m-9  ">
-				<h1 className="font-bold text-gray-800 text-3xl">API Keys</h1>
-				<ApiButton />
+				<h1 className="font-bold text-gray-800 text-3xl ">API Keys</h1>
+				<div className="">
+					<ApiButton />
+				</div>
 			</div>
 
 			<div className="mt-4 mx-10">
 				<Table className="min-w-full border-spacing-0  text-left">
 					{/* min-w-full border-separate border-spacing-0  text-left */}
-					<TableHeader className="header border rounded-xl border-slate-600 bg-gray-100 font-light justify-between">
+					<TableHeader className="header border rounded-xl border-zinc-300 bg-gray-100 font-light justify-between">
 						{table.getHeaderGroups().map((headerGroup) => (
 							<TableRow key={headerGroup.id}>
 								{headerGroup.headers.map((header) => (
 									<TableHead
 										key={header.id}
-										className="h-9 border-b border-t border-slate-6 px-3 text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100"
+										className="h-8 border-b border-t border-zinc-300 px-3 text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100"
 									>
 										{header.isPlaceholder
 											? null

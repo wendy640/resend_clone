@@ -483,7 +483,7 @@ export function LogsTable() {
 	return (
 		<div className="m-8 text-gray-600 ">
 			<div className="flex justify-between items-center m-9  ">
-				<h1 className="font-bold text-3xl">Logs</h1>
+				<h1 className="text-[28px] leading-[34px] tracking-[-0.416px] text-zinc-800 font-bold">Logs</h1>
 			</div>
 
 			<div className="flex items-center py-1 space-x-2 mx-9 ">
@@ -491,7 +491,7 @@ export function LogsTable() {
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="outline"
-							className="flex-grow max-w-[25%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
+							className="flex-grow max-w-[25%] border border-zinc-300 bg-gray-100 font-light h-8 justify-between"
 						>
 							All Statuses <ChevronDown className="h-4 w-4" />
 						</Button>
@@ -528,7 +528,7 @@ export function LogsTable() {
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="outline"
-							className="flex-grow max-w-[25%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
+							className="flex-grow max-w-[25%] border border-zinc-300 bg-gray-100 font-light h-8 justify-between"
 						>
 							Last 3 days <ChevronDown className="h-4 w-4" />
 						</Button>
@@ -565,7 +565,7 @@ export function LogsTable() {
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="outline"
-							className="flex-grow max-w-[25%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
+							className="flex-grow max-w-[25%] border border-zinc-300 bg-gray-100 font-light h-8 justify-between"
 						>
 							All User Agents
 							<ChevronDown className="h-4 w-4" />
@@ -621,7 +621,7 @@ export function LogsTable() {
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="outline"
-							className="flex-grow max-w-[25%] border border-gray-300 bg-gray-100 font-light h-9 justify-between"
+							className="flex-grow max-w-[25%] border border-zinc-300 bg-gray-100 font-light h-8 justify-between"
 						>
 							All API Keys <ChevronDown className="h-4 w-4" />
 						</Button>
@@ -676,13 +676,13 @@ export function LogsTable() {
 			<div className="mt-4 mx-10">
 				<Table className="min-w-full border-spacing-3  text-left">
 					{/* min-w-full border-separate border-spacing-0  text-left */}
-					<TableHeader className="header border rounded-xl  border-slate-600 bg-gray-100 font-light justify-between ">
+					<TableHeader className="header border rounded-xl  border-zinc-300 bg-gray-100 font-light justify-between ">
 						{table.getHeaderGroups().map((headerGroup) => (
 							<TableRow key={headerGroup.id} className="">
 								{headerGroup.headers.map((header) => (
 									<TableHead
 										key={header.id}
-										className="h-9 border-b border-t  text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100 "
+										className="h-8 border-b border-t  text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100 "
 									>
 										{header.isPlaceholder
 											? null

@@ -91,7 +91,7 @@ export default function EmailDetails() {
 								: "bg-sky-100"
 						}`}
 					>
-						{" "}
+					
 						<svg
 							className="absolute   left-0 top-0 text-green-10"
 							fill="none"
@@ -408,10 +408,10 @@ export default function EmailDetails() {
 				</div>
 
 				<div className="mt-6 mb-2 mx-8 text-[14px] text-gray-400">
-					{" "}
+				
 					<p>EMAIL EVENTS</p>
-					<div className="w-full overflow-x-auto p-8 bg-[url('../../public/images/dot.jpeg')] dark:bg-[url('../../public/images/dot.jpeg')]   backdrop-blur-md">
-						<div className="relative flex w-fit gap-12">
+					<div className=" flex inset-0 -z-10 h-40 w-400 bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:9px_9px]">
+						<div className="relative flex  justify-center items-center w-fit mb-5 gap-12">
 							<span className="pointer-events-none absolute left-16 top-1/2 mt-0.5 h-0.5 w-[calc(100%-8rem)] -translate-y-8 select-none bg-[#e5e5e5] dark:bg-[#191B21] "></span>
 							<div
 								className="relative flex min-w-[6rem] flex-col items-center justify-center gap-2"

@@ -1,4 +1,4 @@
-import { DomainTable } from "@/components/broadcast-page/DomainTable";
+import { DomainTable } from "@/components/domain_page/DomainTable";
 import React from "react";
 
 const Domains = () => {

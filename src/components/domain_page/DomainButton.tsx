@@ -1,9 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { LiaCodeSolid } from "react-icons/lia";
-
-import { IoIosLink } from "react-icons/io";
 import { Copy, Plus } from "lucide-react";
 import {
 	Dialog,
@@ -15,7 +12,6 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
@@ -40,7 +36,7 @@ const DomainButton = () => {
 					Add Contacts
 				</Button>
 			</div>
-			<div className="mr-2">
+			<div className="mr-2 -mt-1">
 				<SheetApiButton />
 			</div>
 

@@ -37,7 +37,7 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 
-import DomainButton from "../domain_page/DomainButton";
+import DomainButton from "./DomainButton";
 import Image from "next/image";
 
 type Region = "tokyo" | "ireland"; // Add all possible region keys here
@@ -487,13 +487,13 @@ export function DomainTable() {
 			<div className="mt-4 mx-10">
 				<Table className="min-w-full border-spacing-0  text-left">
 					{/* min-w-full border-separate border-spacing-0  text-left */}
-					<TableHeader className="header border rounded-xl border-slate-600 bg-gray-100 font-light justify-between">
+					<TableHeader className="header border rounded-xl border-zinc-300 bg-gray-100 font-light justify-between">
 						{table.getHeaderGroups().map((headerGroup) => (
 							<TableRow key={headerGroup.id}>
 								{headerGroup.headers.map((header) => (
 									<TableHead
 										key={header.id}
-										className="h-9 border-b border-t border-slate-6 px-3 text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100"
+										className="h-8 border-b border-t border-slate-6 px-3 text-xs font-semibold text-slate-11 first:rounded-l-sm first:border-l last:rounded-r-sm last:border-r bg-gray-100"
 									>
 										{header.isPlaceholder
 											? null
