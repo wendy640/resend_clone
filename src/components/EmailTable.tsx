@@ -770,8 +770,6 @@ export function EmailTable() {
 					{table.getFilteredRowModel().rows.length}
 				</div>
 				<div className="space-x-2 mt-4">
-				
-					
 					<Button
 						className="h-6 w-16 bg-black dark:bg-white"
 						onClick={() => table.previousPage()}
