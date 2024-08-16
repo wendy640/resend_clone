@@ -13,7 +13,7 @@ const SettingsLayout: React.FC<SettingsLayoutProps> = ({ children }) => {
 	const section = pathname.split("/").pop();
 	return (
 		<div className="ml-40 ">
-			<h1 className="text-[27px] tracking-wide dark:text-white text-gray-700 font-bold mb-6">
+			<h1 className="text-[27px] mt-8 tracking-wide dark:text-white text-black/90 font-bold mb-6">
 				Settings
 			</h1>
 			<nav className="mb-4 dark:text-white text-gray-500 text-[15px] font-medium">

@@ -20,7 +20,7 @@ const BillingSettings = () => {
 	};
 	return (
 		<SettingsLayout>
-			<div className="mr-14">
+			<div className="mr-40">
 				<section className="rounded-lg border border-gray-300">
 					<div className="border-b  px-6 py-4">
 						<h2 className="text-xl tracking-[-0.16px] text-slate-12 font-bold">
@@ -86,7 +86,7 @@ const BillingSettings = () => {
 						/>
 					</div>
 					<div className="flex justify-between border-t border-slate-6 py-3 pl-5 pr-3">
-						<Button onClick={handleSaveCard}>Save</Button>
+						<Button onClick={handleSaveCard} className="h-8 bg-zinc-600">Save</Button>
 					</div>
 				</section>
 
@@ -102,7 +102,7 @@ const BillingSettings = () => {
 						</span>
 					</div>
 					<div className="flex justify-between border-t border-slate-6 py-3 pl-5 pr-3">
-						<Button onClick={handleNewCard}>Add New Card</Button>
+						<Button onClick={handleNewCard} className="h-8">Add New Card</Button>
 					</div>
 				</section>
 

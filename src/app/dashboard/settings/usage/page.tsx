@@ -6,7 +6,7 @@ import { Usage_ManageButton } from "@/components/settings_page/usage/Usage_Manag
 const UsageSettings: React.FC = () => {
 	return (
 		<SettingsLayout>
-			<div className="mr-10 mb-10">
+			<div className="mr-40 mb-10">
 				<div className="flex flex-col  border-b border-slate-400 pb-16 pt-8 md:flex-row">
 					<div className="flex w-full justify-between md:block md:w-1/2">
 						<h2 className="mb-1 text-xl tracking-[-0.16px] text-slate-900 dark:text-white font-bold">
