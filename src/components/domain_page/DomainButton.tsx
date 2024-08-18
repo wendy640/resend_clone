@@ -29,14 +29,14 @@ const DomainButton = () => {
 	};
 
 	return (
-		<div className="button flex mt-8 mr-3">
+		<div className="button flex mt-8 ml-8">
 			<div className="mr-2">
 				<Button className="font-light h-8 w-25 " onClick={HandleAddDomain}>
 					<Plus className="mr-2 bg-slate-3 size-4" />
 					Add Contacts
 				</Button>
 			</div>
-			<div className="mr-2 -mt-1">
+			<div className="mr-2  -mt-1">
 				<SheetApiButton />
 			</div>
 

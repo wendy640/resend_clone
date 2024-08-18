@@ -241,29 +241,26 @@ export function BroadcastTable() {
 					</TableBody>
 				</Table>
 			</div>
-			<div className="flex items-center justify-end space-x-2 py-2 mx-10 border-t  border-zinc-300">
-				<div className="flex-1 text-sm text-gray-500">
+			
+			<div className="flex items-center justify-end space-x-2 py-2 mx-10 border-t border-zinc-300">
+				<div className="flex-1 text-sm text-zinc-900 mt-4">
 					page {table.getFilteredSelectedRowModel().rows.length} of{" "}
 					{table.getFilteredRowModel().rows.length}
 				</div>
-				<div className="space-x-2 ">
+				<div className="space-x-2 mt-4">
 					<Button
-						className="border-zinc-300"
-						variant="outline"
-						size="sm"
+						className="h-6 w-16 bg-black dark:bg-white"
 						onClick={() => table.previousPage()}
 						disabled={!table.getCanPreviousPage()}
 					>
-						Previous
+						Newer
 					</Button>
 					<Button
-						className="border-zinc-300"
-						variant="outline"
-						size="sm"
+						className="h-6 w-12 bg-zinc-900 "
 						onClick={() => table.nextPage()}
 						disabled={!table.getCanNextPage()}
 					>
-						Next
+						Older
 					</Button>
 				</div>
 			</div>
