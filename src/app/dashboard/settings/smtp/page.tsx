@@ -9,13 +9,13 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import Link from "next/link";
 
 const SmtpSettings = () => {
   const [copiedField, setCopiedField] = useState("");
 
-  const handleCopy = async (text, field) => {
+  const handleCopy = async (text: string, field: SetStateAction<string>) => {
     try {
       await navigator.clipboard.writeText(text);
       setCopiedField(field);
@@ -178,7 +178,7 @@ const SmtpSettings = () => {
                 <div className="relative" data-size="2" data-state="read-only">
                   <div
                     className="border-2 border-gray-300 bg-zinc-200 pt-1 h-8 rounded-md px-2 text-sm cursor-pointer"
-                    type="text"
+                
                     id="password"
                     onClick={() => handleCopy("YOUR_API_KEY", "password")}
                   >
