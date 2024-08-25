@@ -35,9 +35,9 @@ const TeamSettings = () => {
 
   return (
     <SettingsLayout>
-      <div className="mr-40">
+      <div className="mr-40 my-10">
         <section className="rounded-lg border border-gray-300 my-5">
-          <div className="border-b border-slate-6 px-6 py-4">
+          <div className="border-b border-gray-300 px-6 py-4">
             <h2 className="text-xl tracking-[-0.16px] text-slate-12 font-bold">
               Invite member
             </h2>
@@ -47,14 +47,14 @@ const TeamSettings = () => {
               Email Address
             </label>
             <Input
-              className="border-slate-6 bg-gray-100 border-gray-300 text-gray-500 focus-visible:ring-slate-700 transition ease-in-out duration-200 placeholder:text-gray-500 h-8 rounded-md px-2 text-sm outline-none focus-visible:ring-2"
+              className=" bg-gray-100 border-gray-300 text-gray-500 focus-visible:ring-slate-700 transition ease-in-out duration-200 placeholder:text-gray-500 h-8 rounded-md px-2 text-sm outline-none focus-visible:ring-2"
               type="email"
               id="email"
               placeholder="you@example.com"
               value=""
             />
           </div>
-          <div className="flex justify-between border-t border-slate-6 py-4 pl-5 pr-3">
+          <div className="flex justify-between border-t border-gray-300 py-4 pl-5 pr-3">
             <Button onClick={handleSaveCard} className="bg-zinc-700 h-8">
               Invite
             </Button>
@@ -66,7 +66,7 @@ const TeamSettings = () => {
         </section>
 
         <section className="rounded-lg border border-gray-300 mt-6 mb-16">
-          <div className="border-b border-slate-6 p-4">
+          <div className="border-b border-gray-300 p-4">
             <h1 className="text-base text-slate-12 font-bold">Account</h1>
           </div>
           <div className="flex flex-col items-start gap-4 p-4">

@@ -20,7 +20,7 @@ const BillingSettings = () => {
 	};
 	return (
 		<SettingsLayout>
-			<div className="mr-40">
+			<div className="mr-40 my-10">
 				<section className="rounded-lg border border-gray-300">
 					<div className="border-b  px-6 py-4">
 						<h2 className="text-xl tracking-[-0.16px] text-slate-12 font-bold">
@@ -30,7 +30,7 @@ const BillingSettings = () => {
 					<table className="min-w-full border-separate border-spacing-0 border-none text-left mb-2 px-4 py-4">
 						<tbody className="">
 							<tr className="text-slate-11">
-								<td className="w-3/5  py-3.5 h-10 truncate border-b border-slate-6 px-3 text-sm">
+								<td className="w-3/5  py-3.5 h-10 truncate border-b border-gray-300 px-3 text-sm">
 									<span className="flex items-center text-gray-500">
 										Transactional Pro{" "}
 									</span>
@@ -51,24 +51,24 @@ const BillingSettings = () => {
 								</td>
 							</tr>
 							<tr className="text-slate-12">
-								<td className="w-3/5  py-3.5  h-10 truncate border-b border-slate-6 px-3 text-sm">
+								<td className="w-3/5  py-3.5  h-10 truncate border-b border-gray-300 px-3 text-sm">
 									<strong>Total</strong>
 								</td>
-								<td className="w-1/5 text-center  h-10 truncate border-b border-slate-6 px-3 text-sm"></td>
-								<td className="w-[15%] text-right  h-10 truncate border-b border-slate-6 px-3 text-sm">
+								<td className="w-1/5 text-center  h-10 truncate border-b border-gray-300 px-3 text-sm"></td>
+								<td className="w-[15%] text-right  h-10 truncate border-b border-gray-300 px-3 text-sm">
 									<strong>$20.00 / mo</strong>
 								</td>
-								<td className="text-center  h-10 truncate border-b border-slate-6 px-3 text-sm"></td>
+								<td className="text-center  h-10 truncate border-b border-gray-300 px-3 text-sm"></td>
 							</tr>
 						</tbody>
 					</table>
-					<div className="flex justify-between border-t border-slate-6 py-3 pl-5 pr-3">
+					<div className="flex justify-between border-t border-gray-300 py-3 pl-5 pr-3">
 						<ViewPlanButton />
 					</div>
 				</section>
 
 				<section className="rounded-lg border border-gray-300 my-5">
-					<div className="border-b border-slate-6 px-6 py-4">
+					<div className="border-b border-gray-300 px-6 py-4">
 						<h2 className="text-xl tracking-[-0.16px] text-slate-12 font-bold">
 							Billing Email
 						</h2>
@@ -78,20 +78,20 @@ const BillingSettings = () => {
 							Invoices will be sent to the following email address.
 						</label>
 						<Input
-							className="border-slate-6 bg-gray-100  border-gray-300 text-gray-500 focus-visible:ring-slate-700 transition ease-in-out duration-200 placeholder:text-gray-500 h-8 rounded-md px-2 text-sm  outline-none focus-visible:ring-2"
+							className=" bg-gray-100  border-gray-300 text-gray-500 focus-visible:ring-slate-700 transition ease-in-out duration-200 placeholder:text-gray-500 h-8 rounded-md px-2 text-sm  outline-none focus-visible:ring-2"
 							type="email"
 							id="email"
 							placeholder="you@example.com"
 							value=""
 						/>
 					</div>
-					<div className="flex justify-between border-t border-slate-6 py-3 pl-5 pr-3">
+					<div className="flex justify-between border-t border-gray-300 py-3 pl-5 pr-3">
 						<Button onClick={handleSaveCard} className="h-8 bg-zinc-600">Save</Button>
 					</div>
 				</section>
 
 				<section className="rounded-lg border border-gray-300 my-5">
-					<div className="border-b border-slate-6 px-6 py-4">
+					<div className="border-b border-gray-300 px-6 py-4">
 						<h2 className="text-xl tracking-[-0.16px] text-slate-12 font-bold">
 							Payment Methods
 						</h2>
@@ -101,7 +101,7 @@ const BillingSettings = () => {
 							There are no payment methods yet.
 						</span>
 					</div>
-					<div className="flex justify-between border-t border-slate-6 py-3 pl-5 pr-3">
+					<div className="flex justify-between border-t border-gray-300 py-3 pl-5 pr-3">
 						<Button onClick={handleNewCard} className="h-8">Add New Card</Button>
 					</div>
 				</section>

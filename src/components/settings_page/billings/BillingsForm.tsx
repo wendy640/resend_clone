@@ -50,8 +50,8 @@ export function BillingForm() {
 	}
 
 	return (
-		<section className="rounded-lg border border-slate-6">
-			<div className="border-b border-slate-6 px-6 py-4">
+		<section className="rounded-lg border border-gray-300">
+			<div className="border-b border-gray-300 px-6 py-4">
 				<h2 className="text-xl tracking-[-0.16px] text-slate-12 font-bold">
 					Billing Address
 				</h2>
@@ -160,7 +160,7 @@ export function BillingForm() {
 							/>
 						</div>
 					</div>
-					<div className="flex border-t border-slate-6 px-6 py-3">
+					<div className="flex border-t border-gray-300 px-6 py-3">
 						<Button type="submit">Submit</Button>
 					</div>
 				</form>
